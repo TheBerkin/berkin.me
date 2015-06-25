@@ -16,16 +16,16 @@ h1, h2, h3, h4, h5, h6
 h1
 {
   font-size: 2.5em;
+  color: #111;
+  padding-left: 24px;
+  padding-bottom: 3px;
+  border-bottom: 1px solid #ccc;
 }
 
 h2
 {
   font-size: 2.0em;
-}
-
-h1, h2
-{
-  color: #111;
+  color: #444;
 }
 
 h3, h4, h5
@@ -115,19 +115,9 @@ ul.nobullet li
   width: inherit;
 }
 
-#page > *:not(:first-child)
+h1 + div
 {
-  margin: 32px;
-}
-
-.param
-{
-  font-family: monospace;
-}
-
-.paramdesc
-{
-  margin-left: 2em;
+  padding: 0px 32px;
 }
 
 .centerpiece
