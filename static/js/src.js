@@ -9,6 +9,6 @@ function escapeHTML(string)
 $("code[data-src]").each(function() {
   var elem = $(this);
   var txt = $.get(elem.attr("data-src"), function(data) {
-    elem.html(escapeHTML(result));
+    elem.html(escapeHTML(data));
   });
 });
