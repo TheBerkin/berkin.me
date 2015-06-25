@@ -36,7 +36,7 @@
 @font-face
 {
   font-family: "Droid Sans Mono";
-  src: url("fonts/DroidSansMono.otf");
+  src: url("fonts/DroidSansMono.ttf");
 }
 
 body
@@ -90,7 +90,7 @@ a
 
 code
 {
-  font-family: "Droid Sans Mono" !important;
+  font-family: "Droid Sans Mono", "Courier New", monospace !important;
 }
 
 table
