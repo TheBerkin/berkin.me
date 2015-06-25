@@ -1,8 +1,9 @@
+[case:first]            # Capitalize the first letter
+[rep:3]                 # Repeat three times
+[sep:,\s]               # Comma-separated
+[before:[last:"and "]]  # Prefix last item with "and"
+
 # Everyone's favorite joke setup
-[case:first]
-[rep:3]
-[sep:,\s]
-[before:[last:"and "]]
 {
   \a <noun-person|animal>
 } walked into a bar...
