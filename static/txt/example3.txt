@@ -1,6 +1,6 @@
 # Uppercase
 [case:upper]
-  the numbers, mason! what do they mean?
+the numbers, mason! what do they mean?
 
 # Roman numerals
 [rep:10][sep:,\s][numfmt:roman-upper]{[repnum]}
