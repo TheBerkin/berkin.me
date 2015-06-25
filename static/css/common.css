@@ -1,7 +1,42 @@
+@font-face
+{
+  font-family: "Source Sans Pro";
+  src: url("fonts/SourceSansPro-Regular.otf");
+}
+
+@font-face
+{
+  font-family: "Source Sans Pro";
+  src: url("fonts/SourceSansPro-Semibold.otf");
+  font-weight: 500;
+}
+
+@font-face
+{
+  font-family: "Source Sans Pro";
+  src: url("fonts/SourceSansPro-It.otf");
+  font-style: italic;
+}
+
+@font-face
+{
+  font-family: "Source Sans Pro";
+  src: url("fonts/SourceSansPro-Light.otf");
+  font-weight: 300;
+}
+
+@font-face
+{
+  font-family: "Source Sans Pro";
+  src: url("fonts/SourceSansPro-LightIt.otf");
+  font-weight: 300;
+  font-style: italic;
+}
+
 body
 {
   background-color: #d6d6d6;
-  font: 16px "Segoe UI", Arial, sans-serif;
+  font: 16px "Source Sans Pro", "Segoe UI", Arial, sans-serif;
   font-size: 16px;
   padding: 0;
   margin: 0;
