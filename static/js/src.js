@@ -8,5 +8,7 @@ function escapeHTML(string)
 
 $("code[data-src]").each(function() {
   var elem = $(this);
-  elem.load(escapeHTML(elem.attr("data-src")));
+  var txt = $.get(elem.attr("data-src"), function(data) {
+    elem.html(escapeHTML(result));
+  });
 });
