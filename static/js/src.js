@@ -8,7 +8,11 @@ function escapeHTML(string)
 
 $("code[data-src]").each(function() {
   var elem = $(this);
-  var txt = $.get(elem.attr("data-src"), function(data) {
-    elem.html(escapeHTML(data));
+  $.ajax({
+    url: elem.attr("data-src"),
+    success: function(data) {
+      elem.html(escapeHTML(data));
+    },
+    async: false
   });
 });
