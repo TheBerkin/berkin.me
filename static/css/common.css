@@ -33,6 +33,12 @@
   font-style: italic;
 }
 
+@font-face
+{
+  font-family: "Droid Sans Mono";
+  src: url("fonts/DroidSansMono.otf");
+}
+
 body
 {
   background-color: #d6d6d6;
@@ -80,6 +86,11 @@ a
 {
   text-decoration: none;
   color: #44f;
+}
+
+code
+{
+  font-family: "Droid Sans Mono" !important;
 }
 
 table
