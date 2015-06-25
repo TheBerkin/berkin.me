@@ -1,6 +1,6 @@
 Prism.languages.rant = {
 	'escaped': {
-		pattern: /\\((?:\d+,)?(?:[^u\s\r\n]|u[0-9a-f]{4}))/,
+		pattern: /\\(\d+,)?([^u\s\r\n]|u[0-9a-f]{4})/,
 		alias: 'char'
 	},
 	'comment': {
