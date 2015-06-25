@@ -4,7 +4,8 @@ Prism.languages.rant = {
 		alias: 'char'
 	},
 	'comment': {
-		pattern: /#.*/
+		pattern: /#.*/,
+		inside: {}
 	},
 	'constliteral': {
 		pattern: /(^|[^\\])("(?:(?:[^"]|"")*)?")/,
