@@ -77,6 +77,12 @@ h1 + div > *
   margin: 16px;
 }
 
+.vspaced
+{
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
+
 .button
 {
   cursor: pointer;
@@ -84,7 +90,7 @@ h1 + div > *
   justify-content: center;
   align-items: center;
   border-radius: 3px;
-  padding: 8px;
+  padding: 10px 15px;
   margin: 4px 8px;
   color: #fff;
   border: 1px solid #fff;
