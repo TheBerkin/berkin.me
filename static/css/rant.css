@@ -105,3 +105,16 @@ h1 + div > *
   color: #424;
   background-color: #fff;
 }
+
+.donatebtn + div
+{
+  overflow: hidden;
+  height: 0;
+  transition: height ease 0.2s, margin-top ease 0.2s;
+}
+
+.donatebtn:hover + div
+{
+  margin-top: 24px;
+  height: 1.5em;
+}
