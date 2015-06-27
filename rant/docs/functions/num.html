@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>
+			num - Rant Docs
+		</title><link rel="stylesheet" href="../css/rant.css" type="text/css" /><link rel="stylesheet" href="../css/prism.css" type="text/css" />
+	</head><body>
+		<div id="page">
+			<h1>
+				[num]
+			</h1><p><i>Aliases: <b>n</b></i></p><p>The <code>num</code> function generates a random number and prints it in the current number format (specified using <a href='numfmt.html'><code>numfmt</code></a>).</p>
+			<h2>
+				Syntax
+			</h2><code id="form-2" class="block language-rant">[num: min; max]</code><h3>
+				Description
+			</h3><p>Prints a random number between the specified minimum and maximum bounds.</p>
+			<h3>
+				Parameters
+			</h3><ul class="nobullet">
+				<li><span title="Accepts a decimal number." class="type number">number</span> <b class="param">min</b><p class="paramdesc">The minimum value of the number to generate.</p>
+				</li><li><span title="Accepts a decimal number." class="type number">number</span> <b class="param">max</b><p class="paramdesc">The maximum value of the number to generate.</p>
+				</li>
+			</ul><code id="form-1" class="block language-rant">[num: input]</code><h3>
+				Description
+			</h3><p>Formats an input string using the current number format settings and prints the result.</p>
+			<h3>
+				Parameters
+			</h3><ul class="nobullet">
+				<li><span title="Accepts a string. Only the main output is used." class="type string">string</span> <b class="param">input</b><p class="paramdesc">The string to convert into a number.</p>
+				</li>
+			</ul><h2>
+				Examples
+			</h2><p>The example below shows a simple pattern that generates a list of ten random numbers between 1 and 100.</p>
+			<code class="block language-rant">[rs:10;,\s]{[num:1;100]}
+</code><code class="block">38, 41, 17, 79, 37, 88, 57, 8, 95, 65</code><h2>
+				See also
+			</h2><ul>
+				<li><a href="numfmt.html">numfmt</a></li>
+			</ul>
+		</div><script type="text/javascript" src="../js/prism.js">
+
+		</script><script type="text/javascript" src="../js/prism-rant-keywords.js">
+
+		</script><script type="text/javascript" src="../js/prism-rant.js">
+
+		</script>
+	</body>
+</html>

@@ -1,0 +1,96 @@
+.purple:hover
+{
+  border-color: #736;
+  color: #736;
+}
+
+.blue:hover
+{
+  border-color: #349;
+  color: #349;
+}
+
+.orange:hover
+{
+  border-color: #a62;
+  color: #a62;
+}
+
+.green:hover
+{
+  border-color: #262;
+  color: #262;
+}
+
+.red:hover
+{
+  border-color: #511;
+  color: #511;
+}
+
+.cyan:hover
+{
+  border-color: #277;
+  color: #277;
+}
+
+.just
+{
+  text-align: justify;
+}
+
+.boxy
+{
+  margin: 4px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  font-weight: 600;
+  font-size: 1.5em;
+  display: inline-block;
+}
+
+.body > span::before
+{
+  height: 100%;
+  content: '';
+  vertical-align: middle;
+}
+
+.boxy > span
+{
+  vertical-align: middle;
+}
+
+.portal
+{
+    padding: 8px;
+    margin: 16px;
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.wow
+{
+  padding: 16px;
+  margin: 8px;
+  box-sizing: border-box;
+  border: 1px solid;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: #222;
+  height: 2.2em;
+  font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+  font-size: 24px;
+  cursor: pointer;
+
+  transition: height 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.wow:hover
+{
+  height: 3em;
+}
