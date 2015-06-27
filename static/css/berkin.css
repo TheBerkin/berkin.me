@@ -33,7 +33,7 @@ span.line
 
 .headitem
 {
-  width: 200px;
+  width: 12em;
   order: -1;
   align-items: center;
   overflow: hidden;
@@ -68,7 +68,7 @@ span.line
 {
   display: block;
   color: #fff;
-  margin: 8px;
+  margin: 8px 0px;
 }
 
 .hpadded
