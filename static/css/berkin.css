@@ -4,10 +4,41 @@
   src: url("fonts/Aller_Lt.ttf");
 }
 
+@media (max-aspect-ratio: 4/3)
+{
+  .hpadded
+  {
+    padding: 1em 2em;
+  }
+
+  .berkin
+  {
+    display: none;
+  }
+}
+
+@media (min-aspect-ratio: 4/3)
+{
+  .hpadded
+  {
+    padding: 2em 12em;
+  }
+}
+
+@media (max-width: 400px)
+{
+  .headbox
+  {
+    height: 120px !important;
+    font-size: 36px !important;
+  }
+}
+
 body
 {
   background-color: #eee !important;
 }
+
 span.small.line
 {
   font-size: 1.9em;
@@ -33,27 +64,6 @@ hr
 {
   border-color: #eee;
   margin: 32px 0;
-}
-
-@media (max-aspect-ratio: 4/3)
-{
-  .hpadded
-  {
-    padding: 1em 2em;
-  }
-
-  .berkin
-  {
-    display: none;
-  }
-}
-
-@media (min-aspect-ratio: 4/3)
-{
-  .hpadded
-  {
-    padding: 2em 12em;
-  }
 }
 
 .line-set
@@ -84,6 +94,7 @@ hr
 {
   height: 60px;
   font-family: "Aller";
+  font-size: 28px;
   display: flex;
   flex-direction: row;
   background-color: #093c54;
@@ -114,7 +125,6 @@ hr
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 28px;
   color: #fff;
   transition: background-color ease 0.2s, color ease 0.2s;
 }
