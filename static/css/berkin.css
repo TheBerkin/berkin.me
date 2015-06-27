@@ -1,0 +1,85 @@
+@font-face
+{
+  font-family: "Archivo Narrow";
+  src: url("fonts/ArchivoNarrow-Regular.otf");
+}
+
+body
+{
+  background-color: #eee !important;
+}
+
+.line-set
+{
+  margin: 24px 0px;
+  display: block;
+}
+
+span.small.line
+{
+  font-size: 1.75em;
+}
+
+span.large.line
+{
+  margin: 3px 0;
+  font-size: 2.5em;
+}
+
+span.line
+{
+  display: block;
+}
+
+.headitem
+{
+  width: 200px;
+  order: -1;
+  align-items: center;
+  overflow: hidden;
+}
+
+.headbox
+{
+  font-family: "Archivo Narrow";
+  display: flex;
+  flex-direction: row;
+  background-color: #093c54;
+  color: #fff;
+  overflow: hidden;
+}
+
+.headbox h1, h2, h3, h4, h5, h6, p
+{
+  color: inherit;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.headlinks
+{
+  display: inline-block;
+  text-align: left;
+  font-size: 32px;
+  padding: 8px 0px;
+}
+
+.headlinks a
+{
+  display: block;
+  color: #fff;
+  margin: 8px;
+}
+
+.hpadded
+{
+  padding: 2em 12em;
+}
+
+.berkin
+{
+  background-image: url("../img/berkin-white.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}

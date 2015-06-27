@@ -66,11 +66,6 @@ h1 + div > *
   color: white;
 }
 
-.centered
-{
-  text-align: center;
-}
-
 .smaller
 {
   zoom: 80%;

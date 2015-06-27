@@ -132,3 +132,19 @@ th, td
   padding-left: 0;
   padding-right: 0;
 }
+
+.centered
+{
+  text-align: center;
+}
+
+div.centered
+{
+  margin: 0 auto;
+}
+
+.topmost
+{
+  position: absolute;
+  top: 0;
+}
