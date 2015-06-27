@@ -35,6 +35,27 @@ hr
   margin: 32px 0;
 }
 
+@media (max-aspect-ratio: 4/3)
+{
+  .hpadded
+  {
+    padding: 1em 2em;
+  }
+
+  .berkin
+  {
+    display: none;
+  }
+}
+
+@media (min-aspect-ratio: 4/3)
+{
+  .hpadded
+  {
+    padding: 2em 12em;
+  }
+}
+
 .line-set
 {
   margin: 24px 0px;
@@ -43,6 +64,8 @@ hr
 
 .headitem
 {
+  padding: 0px 16px;
+  white-space: nowrap;
   width: 150px;
   order: -1;
   align-items: center;
@@ -73,9 +96,9 @@ hr
   margin-left: auto;
 }
 
-.hpadded
+.smaller
 {
-  padding: 2em 12em;
+  zoom: 80%;
 }
 
 .berkin
