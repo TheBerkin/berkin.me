@@ -10,18 +10,29 @@ body
 }
 span.small.line
 {
-  font-size: 1.75em;
+  font-size: 1.9em;
 }
 
 span.large.line
 {
   margin: 3px 0;
-  font-size: 2.5em;
+  font-size: 2.8em;
 }
 
 span.line
 {
   display: block;
+}
+
+p.emphasize
+{
+  font-size: 1.4em;
+}
+
+hr
+{
+  border-color: #eee;
+  margin: 32px 0;
 }
 
 .line-set
@@ -38,6 +49,14 @@ span.line
   overflow: hidden;
 }
 
+.headitem.icon
+{
+  width: 60px;
+  order: -1;
+  align-items: center;
+  overflow: hidden;
+}
+
 .headbox
 {
   height: 60px;
@@ -49,26 +68,9 @@ span.line
   overflow: hidden;
 }
 
-.headbox h1, h2, h3, h4, h5, h6, p
+:not(.right) + .right
 {
-  color: inherit;
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-.headlinks
-{
-  display: inline-block;
-  text-align: left;
-  font-size: 32px;
-  padding: 8px 0px;
-}
-
-.headlinks a
-{
-  display: block;
-  color: #fff;
-  margin: 8px 0px;
+  margin-left: auto;
 }
 
 .hpadded
