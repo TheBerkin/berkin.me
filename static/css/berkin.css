@@ -8,13 +8,6 @@ body
 {
   background-color: #eee !important;
 }
-
-.line-set
-{
-  margin: 24px 0px;
-  display: block;
-}
-
 span.small.line
 {
   font-size: 1.75em;
@@ -31,9 +24,15 @@ span.line
   display: block;
 }
 
+.line-set
+{
+  margin: 24px 0px;
+  display: block;
+}
+
 .headitem
 {
-  width: 12em;
+  width: 150px;
   order: -1;
   align-items: center;
   overflow: hidden;
@@ -41,6 +40,7 @@ span.line
 
 .headbox
 {
+  height: 60px;
   font-family: "Archivo Narrow";
   display: flex;
   flex-direction: row;
@@ -79,7 +79,23 @@ span.line
 .berkin
 {
   background-image: url("../img/berkin-white.png");
-  background-size: contain;
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+}
+
+.button
+{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  color: #fff;
+  transition: background-color ease 0.2s, color ease 0.2s;
+}
+
+.button:hover
+{
+  color: #093c54;
+  background-color: #fff;
 }
