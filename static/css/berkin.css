@@ -1,7 +1,7 @@
 @font-face
 {
-  font-family: "Archivo Narrow";
-  src: url("fonts/ArchivoNarrow-Regular.otf");
+  font-family: "Aller";
+  src: url("fonts/Aller_Lt.ttf");
 }
 
 body
@@ -60,7 +60,7 @@ hr
 .headbox
 {
   height: 60px;
-  font-family: "Archivo Narrow";
+  font-family: "Aller";
   display: flex;
   flex-direction: row;
   background-color: #093c54;
