@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Rant Sandbox</title>
+
+    <!-- Open Graph stuff -->
+    <meta property="og:title" content="Rant Sandbox" />
+    <meta property="og:type" content="website" />
+    <meta property="og:description" content="Online Rant pattern tester" />
+    <meta property="og:url" content="http://berkin.me/rant/sandbox" />
+    <meta property="og:image" content="http://berkin.me/static/img/rant-logo-wordhead.png" />
+
+    <!-- Stylesheets of questionable quality -->
+    <link rel="stylesheet" type="text/css" href="../static/css/common.css" />
+    <link rel="stylesheet" type="text/css" href="../static/css/codemirror.css" />
+
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="http://berkin.me/rantdocs/js/prism-rant-keywords.js"></script>
+    <script type="text/javascript" src="../static/js/codemirror/codemirror.js"></script>
+    <script type="text/javascript" src="../static/js/codemirror/simple.js"></script>
+    <script type="text/javascript" src="../static/js/sandbox.js"></script>
+  </head>
+
+  <body>
+    <div id="page">
+      <h1>Rant Sandbox</h1>
+      <p>
+        This is a real, working Rant interpreter, delivered on a webpage. It's like magic, except it's not.
+      </p>
+      <p>
+        Type a pattern in the box below and hit "Run".
+        Once the server has determined you are worthy,
+        it will send the output back to you and display it.
+      </p>
+      <div>
+        <textarea id="editor"></textarea>
+        <input type="checkbox" id="nsfw">Enable NSFW content</input>
+        <div class="button" id="btnrun">Run</div>
+      </div>
+      <h2>Output</h2>
+      <div id="output"></div>
+    </div>
+  </body>
+</html>
