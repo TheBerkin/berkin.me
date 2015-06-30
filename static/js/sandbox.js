@@ -51,7 +51,7 @@ window.addEventListener("load", function() {
   if (window.location.hash)
   {
     $.ajax({
-      url: serverUrl + "/load?pattern=" + window.location.hash,
+      url: serverUrl + "/load?pattern=" + window.location.hash.substring(1),
       type: "GET",
       success: function(data) {
         editor.setValue(data);
