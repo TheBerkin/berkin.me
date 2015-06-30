@@ -33,10 +33,28 @@
         Once the server has determined you are worthy,
         it will send the output back to you and display it.
       </p>
+      <p>
+        If you want to share your creation with the whole world, press Save.
+        You will be given a link that will bring you back to your pattern.
+      </p>
       <div>
         <textarea id="editor"></textarea>
-        <input type="checkbox" id="nsfw">Enable NSFW content</input>
-        <div class="float-right button" id="btnrun">Run</div>
+        <div class="tool-hsplit">
+          <div>
+            <div>
+              <input type="checkbox" id="nsfw">
+                Include NSFW content
+              </input>
+            </div>
+          </div>
+          <div>
+            <div class="middle">
+              <input type="text" class="hidden" id="savelink" readonly="true" onClick="this.select();"></input>
+            </div>
+            <div class="button" id="btnsave">Save</div>
+            <div class="button" id="btnrun">Run</div>
+          </div>
+        </div>
       </div>
       <h2>Output</h2>
       <div id="output"></div>

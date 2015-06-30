@@ -4,16 +4,70 @@ window.addEventListener("load", function() {
     mode: "rant"
   });
 
+  editor.on("change", function() {
+    resetSaveButton();
+  });
+
+  var serverUrl = "http://localhost:8080";
+  var rbRunning, rbSaving = false;
+
   function setOutput(value)
   {
     $("#output").text(value);
   }
 
-  $("#btnrun").click(function() {
-    if (rantboxBusy) return;
-    rantboxBusy = true;
+  function showLinkField(bShow)
+  {
+    if (bShow)
+      $("#savelink").removeClass("hidden");
+    else
+      $("#savelink").addClass("hidden");
+  }
+
+  function resetSaveButton()
+  {
+    var btn = $("#btnsave");
+    btn.text("Save");
+    btn.removeClass("error-sandbox");
+    btn.removeClass("success-sandbox");
+  }
+
+  function createHashLink(hash)
+  {
+  	var endPoint = window.location.href.indexOf('#');
+  	if (endPoint === -1)
+  	{
+  		endPoint = window.location.href.indexOf('?');
+  	}
+  	if (endPoint === -1)
+  	{
+  		endPoint = window.location.href.length;
+  	}
+
+  	return window.location.href.slice(0, endPoint) + '#' + (hash[0] == '#' ? hash.substring(1) : hash);
+  }
+
+  // If the address has a hash, load the associated pattern
+  if (window.location.hash)
+  {
     $.ajax({
-      url: "http://rant.berkin.me/run",
+      url: serverUrl + "/load?pattern=" + window.location.hash,
+      type: "GET",
+      success: function(data) {
+        editor.setValue(data);
+      },
+      async: false
+    });
+  }
+
+  // Run button
+  $("#btnrun").click(function() {
+    if (rbRunning) return;
+    showLinkField(false);
+    resetSaveButton();
+    rbRunning = true;
+    $.ajax({
+      url: serverUrl + "/run",
       type: "POST",
       dataType: "json",
       data: {
@@ -33,17 +87,44 @@ window.addEventListener("load", function() {
         }
       },
       error: function(data, type, msg) {
-
+        $("#output").addClass("error-sandbox");
         setOutput(msg);
       },
-      complete: function(xhr, status) {
-        rantboxBusy = false;
+      complete: function(data, status) {
+        rbRunning = false;
       }
     });
   });
-});
 
-var rantboxBusy = false;
+  // Save button
+  $("#btnsave").click(function() {
+    if (rbSaving) return;
+    resetSaveButton();
+    rbSaving = true;
+    $("#btnsave").text("Saving...");
+    $.ajax({
+      url: serverUrl + "/save",
+      type: "POST",
+      dataType: "json",
+      data: {
+        pattern: editor.getValue()
+      },
+      success: function(data) {
+        $("#savelink").val(createHashLink(data.hash));
+        $("#btnsave").addClass("success-sandbox");
+        showLinkField(true);
+        $("#btnsave").text("Saved");
+      },
+      error: function(data, type, msg) {
+        $("#btnsave").addClass("error-sandbox");
+      },
+      complete: function(data, status) {
+        rbSaving = false;
+
+      }
+    })
+  });
+});
 
 CodeMirror.defineSimpleMode("rant", {
     start: [

@@ -1,6 +1,24 @@
-.float-right
+.tool-hsplit
 {
-  float: right;
+  display: flex;
+  flex-direction: row;
+}
+
+.tool-hsplit > div
+{
+  min-width: 50%;
+  box-sizing: border-box;
+  display: flex;
+}
+
+.tool-hsplit > div:first-child
+{
+  justify-content: flex-start;
+}
+
+.tool-hsplit > div:last-child
+{
+  justify-content: flex-end;
 }
 
 .button
@@ -8,13 +26,24 @@
   -moz-user-select: none;
   -khtml-user-select: none;
   -webkit-user-select: none;
-  -o-user-select: none; 
+  -o-user-select: none;
   cursor: pointer;
   background-color: #eee;
   border-radius: 3px;
   border: 1px solid #ccc;
-  padding: 10px;
+  padding: 12px;
+  margin: 3px 0;
   display: inline-block;
+}
+
+.button:not(:last-child)
+{
+  margin-right: 3px;
+}
+
+.button:not(:first-child)
+{
+  margin-left: 3px;
 }
 
 .button:hover
@@ -32,9 +61,39 @@ input[type="checkbox"]
   margin: 10px;
 }
 
+input[type="text"]
+{
+  box-sizing: border-box;
+  padding: 4px 2px;
+  margin: 3px;
+  font-size: 1.1em;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+  outline: none;
+  background-color: white;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+.hidden
+{
+  display: none;
+}
+
 .error-sandbox
 {
-   color: #f00;
+   color: #a00;
+}
+
+.success-sandbox
+{
+   color: #0a0;
+}
+
+.middle
+{
+  display:flex;
+  align-items: center;
 }
 
 #output
@@ -43,4 +102,6 @@ input[type="checkbox"]
   border-radius: 3px;
   border: 1px solid #ccc;
   padding: 16px;
+  max-height: 500px;
+  overflow: auto;
 }
