@@ -1,6 +1,14 @@
-.button
+.float-right
 {
   float: right;
+}
+
+.button
+{
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -o-user-select: none; 
   cursor: pointer;
   background-color: #eee;
   border-radius: 3px;
