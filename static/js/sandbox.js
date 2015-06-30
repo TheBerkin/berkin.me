@@ -8,7 +8,7 @@ window.addEventListener("load", function() {
     resetSaveButton();
   });
 
-  var serverUrl = "http://localhost:8080";
+  var serverUrl = "http://rant.berkin.me";
   var rbRunning, rbSaving = false;
 
   function setOutput(value)
