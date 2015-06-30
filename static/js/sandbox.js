@@ -117,6 +117,7 @@ window.addEventListener("load", function() {
       },
       error: function(data, type, msg) {
         $("#btnsave").addClass("error-sandbox");
+        $("#btnsave").text("Save Error");
       },
       complete: function(data, status) {
         rbSaving = false;
