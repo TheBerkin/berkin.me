@@ -74,7 +74,7 @@ window.addEventListener("load", function() {
       dataType: "json",
       data: {
         pattern: editor.getValue(),
-        includeHidden: $("input#nsfw").attr("checked") ? "nsfw" : ""
+        includeHidden: $("#nsfw").is(":checked") ? "nsfw" : ""
       },
       success: function(data) {
         if (data.statusType == "success")
