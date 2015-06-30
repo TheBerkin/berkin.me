@@ -66,7 +66,7 @@ window.addEventListener("load", function() {
     showLinkField(false);
     resetSaveButton();
     rbRunning = true;
-    $("#btnrun").text("Running...");
+    $("#outputlabel").text("Running...");
 
     $.ajax({
       url: serverUrl + "/run",
@@ -94,7 +94,7 @@ window.addEventListener("load", function() {
       },
       complete: function(data, status) {
         rbRunning = false;
-        $("#btnrun").text("Run");
+        $("#outputlabel").text("Output");
       }
     });
   });
