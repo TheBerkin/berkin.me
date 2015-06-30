@@ -99,6 +99,7 @@ input[type="text"]
 #output
 {
   white-space: pre;
+  word-wrap: break-word;
   border-radius: 3px;
   border: 1px solid #ccc;
   padding: 16px;
