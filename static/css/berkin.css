@@ -181,6 +181,7 @@ p.smaller, a.smaller
 .project
 {
   display: inline-block;
+  width: 400px;
   max-width: 400px;
   padding: 16px;
   margin: 6px;
