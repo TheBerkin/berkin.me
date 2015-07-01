@@ -66,6 +66,11 @@ hr
   margin: 32px 0;
 }
 
+a
+{
+  color: #062ac1;
+}
+
 .line-set
 {
   margin: 24px 0px;
@@ -107,9 +112,47 @@ hr
   margin-left: auto;
 }
 
-.smaller
+img.smaller
 {
   zoom: 80%;
+}
+
+img.profile
+{
+  width: 175px;
+  height: 175px;
+}
+
+p.smaller, a.smaller
+{
+  font-size: 0.9em;
+}
+
+.align-right
+{
+  text-align: right;
+}
+
+.float-right
+{
+  display: block;
+  float: right;
+}
+
+.float-left
+{
+  display: block;
+  float: left;
+}
+
+.profile.float-left
+{
+  margin-right: 16px;
+}
+
+.profile.float-right
+{
+  margin-left: 16px;
 }
 
 .berkin
@@ -133,4 +176,24 @@ hr
 {
   color: #093c54;
   background-color: #fff;
+}
+
+.project
+{
+  display: inline-block;
+  min-width: 360px;
+  padding: 16px;
+  margin: 6px;
+  border-radius: 3px;
+  border: 2px solid #ccc;
+  color: #000;
+  font-size: 1.2em;
+}
+
+@media (max-aspect-ratio: 4/3)
+{
+  .project
+  {
+    display: block;
+  }
 }

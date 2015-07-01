@@ -1,4 +1,26 @@
-window.addEventListener("load", function() {
+CodeMirror.defineSimpleMode("rant", {
+    start: [
+      // Comment
+      {regex: /#.*/, token: "comment"},
+      // Escape
+      {regex: /\\(?:\d+,)?(?:[^u\s\r\n]|u[0-9a-f]{4})/, token: "string-2"	},
+      // Constant literal
+      {regex: /("(?:(?:[^"]|"")*)?")/, token: "string"},
+      // Query
+      {regex: /<[\s\S]+?>/g, token: "tag"},
+      // Regex
+      {regex: /`(?:.*?[^\\])?`i?/ig, token: "string-2"},
+      // Function
+      {
+        regex: new RegExp("(\\[)(\\$\\w+|" + rantFunctions + ")[:\\]]", "i"),
+        token: [null, "atom"]
+      },
+      // Subroutine definition
+      {regex: /(\[)(\$\??)(\[.*?\])(?=\s*\:)/g, token: [null, "def", "def", "def"]}
+    ]
+});
+
+$(document).ready(function() {
   var editor = CodeMirror.fromTextArea(document.getElementById("editor"), {
     lineNumbers: true,
     mode: "rant"
@@ -128,26 +150,4 @@ window.addEventListener("load", function() {
       }
     })
   });
-});
-
-CodeMirror.defineSimpleMode("rant", {
-    start: [
-      // Comment
-      {regex: /#.*/, token: "comment"},
-      // Escape
-      {regex: /\\(?:\d+,)?(?:[^u\s\r\n]|u[0-9a-f]{4})/, token: "string-2"	},
-      // Constant literal
-      {regex: /("(?:(?:[^"]|"")*)?")/, token: "string"},
-      // Query
-      {regex: /<[\s\S]+?>/g, token: "tag"},
-      // Regex
-      {regex: /`(?:.*?[^\\])?`i?/ig, token: "string-2"},
-      // Function
-      {
-        regex: new RegExp("(\\[)(\\$\\w+|" + rantFunctions + ")[:\\]]", "i"),
-        token: [null, "atom"]
-      },
-      // Subroutine definition
-      {regex: /(\[)(\$\??)(\[.*?\])(?=\s*\:)/g, token: [null, "def", "def", "def"]}
-    ]
 });
