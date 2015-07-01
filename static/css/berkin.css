@@ -4,36 +4,6 @@
   src: url("fonts/Aller_Lt.ttf");
 }
 
-@media (max-aspect-ratio: 4/3)
-{
-  .hpadded
-  {
-    padding: 1em 2em;
-  }
-
-  .berkin
-  {
-    display: none;
-  }
-}
-
-@media (min-aspect-ratio: 4/3)
-{
-  .hpadded
-  {
-    padding: 2em 5%;
-  }
-}
-
-@media (max-device-width: 400px)
-{
-  .headbox
-  {
-    height: 120px !important;
-    font-size: 36px !important;
-  }
-}
-
 body
 {
   background-color: #eee !important;
@@ -98,7 +68,6 @@ a
   width: 150px;
   order: -1;
   align-items: center;
-  overflow: hidden;
 }
 
 .headitem.icon
@@ -173,7 +142,7 @@ p.smaller, a.smaller
   left: -15px;
   width: 200px;
   height: 200px;
-  background-image: url("../img/berkin-shadow.png");
+  background-image: url("../img/berkin-logo.svg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -258,34 +227,52 @@ p.smaller, a.smaller
   bottom: 0;
 }
 
-/* Portrait */
-@media (max-aspect-ratio: 4/3)
+/* Narrow */
+@media screen and (max-width: 640px)
 {
-  #project-list
-  {
-    flex-direction: column;
-  }
   .landscape
   {
       display: none;
   }
-  .project
-  {
-    display: block;
-  }
 }
 
-/* Landscape */
-@media (min-aspect-ratio: 4/3)
+/* Regular */
+@media screen and (min-width: 640px)
 {
   .portrait
   {
       display: none;
   }
+}
+
+/* Wide */
+@media screen and (min-aspect-ratio: 4/3)
+{
   .project
   {
     display: inline-block;
     width: 400px;
     max-width: 400px;
+  }
+  .hpadded
+  {
+    padding: 2em 5%;
+  }
+}
+
+/* Tall */
+@media screen and (max-aspect-ratio: 4/3)
+{
+  .project
+  {
+    display: block;
+  }
+  #project-list
+  {
+    flex-direction: column;
+  }
+  .hpadded
+  {
+    padding: 1em 2em;
   }
 }
