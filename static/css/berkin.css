@@ -39,6 +39,20 @@ body
   background-color: #eee !important;
 }
 
+body::before
+{
+  content: '';
+  background-image: url("../img/berkin-black.png");
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: -1;
+  background-size: auto;
+  background-position: center;
+  opacity: 0.02;
+}
+
 span.small.line
 {
   font-size: 1.9em;
@@ -79,7 +93,7 @@ a
 
 .headitem
 {
-  padding: 0px 16px;
+  padding: 0px 0px;
   white-space: nowrap;
   width: 150px;
   order: -1;
@@ -90,6 +104,8 @@ a
 .headitem.icon
 {
   width: 60px;
+  height: 100%;
+  font-size: 1.2em;
   order: -1;
   align-items: center;
   overflow: hidden;
@@ -99,7 +115,7 @@ a
 {
   height: 60px;
   font-family: "Aller";
-  font-size: 28px;
+  font-size: 24px;
   display: flex;
   flex-direction: row;
   background-color: #093c54;
@@ -152,10 +168,22 @@ p.smaller, a.smaller
 
 .berkin
 {
-  background-image: url("../img/berkin-white.png");
+  position: absolute;
+  top: -65px;
+  left: -15px;
+  width: 200px;
+  height: 200px;
+  background-image: url("../img/berkin-shadow.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  transition: 0.3s all cubic-bezier(.53,.34,.56,.83);
+  transform: scale(0.6);
+}
+
+.berkin:hover
+{
+  transform: scale(0.7) translateY(15px);
 }
 
 .button
@@ -171,6 +199,7 @@ p.smaller, a.smaller
 {
   color: #093c54;
   background-color: #fff;
+  z-index: 1000;
 }
 
 .section::after
@@ -229,12 +258,16 @@ p.smaller, a.smaller
   bottom: 0;
 }
 
-/* Wide */
+/* Portrait */
 @media (max-aspect-ratio: 4/3)
 {
   #project-list
   {
     flex-direction: column;
+  }
+  .landscape
+  {
+      display: none;
   }
   .project
   {
@@ -242,9 +275,13 @@ p.smaller, a.smaller
   }
 }
 
-/* Skinny */
+/* Landscape */
 @media (min-aspect-ratio: 4/3)
 {
+  .portrait
+  {
+      display: none;
+  }
   .project
   {
     display: inline-block;
