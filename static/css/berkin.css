@@ -137,6 +137,7 @@ p.smaller, a.smaller
 
 .berkin
 {
+  display: inline-block;
   position: absolute;
   top: -65px;
   left: -15px;
@@ -146,7 +147,7 @@ p.smaller, a.smaller
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  transition: 0.3s all cubic-bezier(.53,.34,.56,.83);
+  transition: 0.3s transform cubic-bezier(.53,.34,.56,.83);
   transform: scale(0.6);
 }
 
