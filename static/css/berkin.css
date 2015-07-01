@@ -178,6 +178,11 @@ p.smaller, a.smaller
   background-color: #fff;
 }
 
+#project-list
+{
+  display: flex;
+}
+
 .project
 {
   display: inline-block;
