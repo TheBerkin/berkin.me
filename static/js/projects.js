@@ -15,7 +15,8 @@ $(document).ready(function() {
         class: "align-right"
       }).append($("<a/>", {
         href: project.url,
-        class: "smaller"
+        class: "smaller",
+        target: "_blank"
       }).text("Go to project page"))
     ).appendTo("#project-list");
   }
