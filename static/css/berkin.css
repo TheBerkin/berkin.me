@@ -177,6 +177,7 @@ p.smaller, a.smaller
 {
   display: flex;
   flex-wrap: wrap;
+  margin-left: -4px;
 }
 
 .project
@@ -184,6 +185,7 @@ p.smaller, a.smaller
   display: inline-block;
   position: relative;
   margin: 6px;
+  min-height: 175px;
   border-radius: 3px;
   border: 2px solid #ccc;
   color: #000;
