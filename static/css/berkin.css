@@ -180,6 +180,7 @@ p.smaller, a.smaller
 
 .project
 {
+  display: inline-block;
   position: relative;
   margin: 6px;
   border-radius: 3px;
@@ -212,14 +213,20 @@ p.smaller, a.smaller
   bottom: 0;
 }
 
+/* Wide */
 @media (max-aspect-ratio: 4/3)
 {
+  #project-list
+  {
+    flex-direction: column;
+  }
   .project
   {
     display: block;
   }
 }
 
+/* Skinny */
 @media (min-aspect-ratio: 4/3)
 {
   .project
