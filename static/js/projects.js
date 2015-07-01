@@ -6,14 +6,25 @@ $(document).ready(function() {
       class: "project"
     })
     .append(
-      $("<span/>", {
-        class: "small line"
-      }).text(project.name),
-      $("<p/>", { class: "smaller" })
-      .text(project.description),
       $("<div/>", {
-        class: "align-right"
-      }).append($("<a/>", {
+        class: "project-body"
+      })
+      .append(
+        // Project title
+        $("<span/>", {
+          class: "small line"
+        }).text(project.name),
+
+        // Project description
+        $("<p/>", { class: "smaller" })
+        .text(project.description)
+      ),
+      
+      // Project link
+      $("<div/>", {
+        class: "project-links"
+      })
+      .append($("<a/>", {
         href: project.url,
         class: "smaller",
         target: "_blank"

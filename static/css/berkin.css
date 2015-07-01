@@ -128,11 +128,6 @@ p.smaller, a.smaller
   font-size: 0.9em;
 }
 
-.align-right
-{
-  text-align: right;
-}
-
 .float-right
 {
   display: block;
@@ -185,10 +180,7 @@ p.smaller, a.smaller
 
 .project
 {
-  display: inline-block;
-  width: 400px;
-  max-width: 400px;
-  padding: 16px;
+  position: relative;
   margin: 6px;
   border-radius: 3px;
   border: 2px solid #ccc;
@@ -196,10 +188,44 @@ p.smaller, a.smaller
   font-size: 1.2em;
 }
 
+.project > div
+{
+  padding: 0 16px;
+  box-sizing: border-box;
+}
+
+.project-body
+{
+  width: 100%;
+  height: 100%;
+  padding: 16px;
+  margin-top: 8px;
+  margin-bottom: 32px;
+}
+
+.project-links
+{
+  text-align: right;
+  position: absolute;
+  width: 100%;
+  height: 32px;
+  bottom: 0;
+}
+
 @media (max-aspect-ratio: 4/3)
 {
   .project
   {
     display: block;
+  }
+}
+
+@media (min-aspect-ratio: 4/3)
+{
+  .project
+  {
+    display: inline-block;
+    width: 400px;
+    max-width: 400px;
   }
 }
