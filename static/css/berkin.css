@@ -196,6 +196,12 @@ p.smaller, a.smaller
   box-sizing: border-box;
 }
 
+.project-title
+{
+  font-size: 1.5em;
+  display: block;
+}
+
 .project-body
 {
   width: 100%;

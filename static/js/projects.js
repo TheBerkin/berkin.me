@@ -12,14 +12,14 @@ $(document).ready(function() {
       .append(
         // Project title
         $("<span/>", {
-          class: "small line"
+          class: "project-title"
         }).text(project.name),
 
         // Project description
         $("<p/>", { class: "smaller" })
         .text(project.description)
       ),
-      
+
       // Project link
       $("<div/>", {
         class: "project-links"
