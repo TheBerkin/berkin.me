@@ -9,6 +9,11 @@
       "name": "Stringes",
       "description": "Lexer and substring location tracking library written in C#",
       "url": "http://github.com/TheBerkin/Stringes"
+    },
+    {
+      "name": "Diffmark",
+      "description": "A DSL for transforming one string to another",
+      "url": "http://github.com/TheBerkin/Diffmark"
     }
   ]
 }
