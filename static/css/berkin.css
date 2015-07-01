@@ -173,6 +173,13 @@ p.smaller, a.smaller
   background-color: #fff;
 }
 
+.section::after
+{
+  clear: both;
+  content: '';
+  display: table;
+}
+
 #project-list
 {
   display: flex;
