@@ -136,6 +136,13 @@
     rgb.b *= x;
   }
 
+  var ir = function(rgb) {
+    var x = (1 - clamp(rgb.r, 0, 1)) * clamp(1 - (rgb.g + rgb.b) / 2, 0, 1);
+    rgb.r *= x;
+    rgb.g *= x;
+    rgb.b *= x;
+  }
+
   var invert = function(rgb) {
     rgb.r = 1 - rgb.r;
     rgb.g = 1 - rgb.g;
@@ -158,6 +165,10 @@
     },
     "vermillion": function(rgb) {
       lean(rgb, .890, .259, .204);
+    },
+    "facepunch": function(rgb) {
+      ir(rgb);
+      lean(rgb, .72, 0, 0);
     },
     "puce": function(rgb) {
       lean(rgb, .447, .203, .215);
