@@ -40,7 +40,7 @@
   };
 
   RGB.prototype.isBright = function() {
-    return (this.r + this.g * 1.8 + this.b * .3) / 3 > .5;
+    return (this.r * 1.3 + this.g * 1.8 + this.b * .3) / 3 > .5;
   };
 
   var lean = function(color, rr, gg, bb) {
@@ -332,6 +332,26 @@
       rgb.g += .4;
       rgb.b += .1;
       lean(rgb, .35, .6, .35);
+    },
+    "crazy": function(rgb) {
+      var t = rgb.r;
+      rgb.r = rgb.g;
+      rgb.g = rgb.b;
+      rgb.b = t;
+    },
+    "jizz": function(rgb) {
+      desat(rgb, .8);
+      lighten(rgb, .8);
+      rgb.b *= .95;
+    },
+    "semen": function(rgb) {
+      desat(rgb, .8);
+      lighten(rgb, .7);
+      rgb.b *= .85;
+    },
+    "alien": function(rgb) {
+      desat(rgb, .25);
+      lean(rgb, 0, 1, .2);
     }
   };
   Incantate = {
