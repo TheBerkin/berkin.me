@@ -228,6 +228,22 @@
     "azure": function(rgb) {
       lean(rgb, 0, .5, 1);
     },
+    "sea": function(rgb) {
+      darken(rgb, .5);
+      desat(rgb, .3);
+      rgb.g += rgb.b;
+      rgb.g += .3;
+      rgb.b += .4;
+      rgb.r *= .1;
+    },
+    "ocean": function(rgb) {
+      darken(rgb, .5);
+      desat(rgb, .3);
+      rgb.g += rgb.b;
+      rgb.g += .25;
+      rgb.b += .45;
+      rgb.r *= .1;
+    },
     "taupe": function(rgb) {
       lean(rgb, .282, .235, .196);
     },
