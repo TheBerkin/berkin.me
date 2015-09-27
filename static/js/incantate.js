@@ -136,6 +136,9 @@
     "red": function(rgb) {
       lean(rgb, 1, 0, 0);
     },
+    "vermillion": function(rgb) {
+      lean(rgb, .890, .259, .204);
+    },
     "puce": function(rgb) {
       lean(rgb, .447, .203, .215);
     },
