@@ -145,6 +145,9 @@
     "yellow": function(rgb) {
       lean(rgb, 1, 1, 0);
     },
+    "amber": function(rgb) {
+      lean(rgb, 1, .75, 0);
+    },
     "green": function(rgb) {
       lean(rgb, 0, 1, 0);
     },
@@ -182,6 +185,9 @@
     "taupe": function(rgb) {
       lean(rgb, .282, .235, .196);
     },
+    "umber": function(rgb) {
+      lean(rgb, .388, .318, .278);
+    },
     "coffee": function(rgb) {
       lean(rgb, .31, .235, .06);
     },
@@ -198,6 +204,13 @@
       rgb.b *= x;
       rgb.r *= x;
       lean(rgb, .392, .584, .929);
+    },
+    "periwinkle": function(rgb) {
+      var x = (1 - rgb.b) * (1 - (rgb.g + rgb.r) / 2);
+      rgb.g *= x;
+      rgb.b *= x;
+      rgb.r *= x;
+      lean(rgb, .8, .8, 1);
     },
     "reddish": function(rgb) {
       lean(rgb, .5, 0, 0);
