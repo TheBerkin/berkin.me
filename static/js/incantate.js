@@ -178,6 +178,14 @@
     "light": function(rgb) {
       lighten(rgb, .4);
     },
+    "baby": function(rgb) {
+      rgb.r += 0.4;
+      rgb.r *= 2.0;
+      rgb.g += 0.3;
+      rgb.g *= 2.0;
+      rgb.b += 0.3;
+      rgb.b *= 2.0;
+    },
     "dark": function(rgb) {
       darken(rgb, .5);
     },
@@ -188,6 +196,17 @@
       desat(rgb, .75);
       rgb.b *= .5;
       rgb.g *= .9;
+    },
+    "rotten": function(rgb) {
+      rgb.r *= .8;
+      rgb.g += .05;
+      rgb.b *= .75;
+      desat(rgb, .7);
+    },
+    "dead": function(rgb) {
+      desat(rgb, .25);
+      rgb.b *= 1.2;
+      rgb.g *= 1.1;
     }
   };
   Incantate = {
