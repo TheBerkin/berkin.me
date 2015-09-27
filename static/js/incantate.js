@@ -238,6 +238,24 @@
       rgb.g = (rgb.g + 1) * .18;
       rgb.b *= 0.1;
     },
+    "piss": function(rgb) {
+      desat(rgb, .3);
+      lean(rgb, 1, .9, .3);
+    },
+    "banana": function(rgb) {
+      desat(rgb, .3);
+      lean(rgb, 1, .9, .3);
+      sat(rgb, .25);
+    },
+    "lips": function(rgb) {
+      desat(rgb, .2);
+      rgb.r += 0.3;
+      rgb.r *= 1.8;
+      rgb.g += 0.2;
+      rgb.g *= 1.2;
+      rgb.b += 0.2;
+      rgb.b *= 1.2;
+    },
     "night": function(rgb) {
       rgb.r *= .1;
       rgb.g *= .1;
