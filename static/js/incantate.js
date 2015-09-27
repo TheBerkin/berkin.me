@@ -179,6 +179,12 @@
     "azure": function(rgb) {
       lean(rgb, 0, .5, 1);
     },
+    "taupe": function(rgb) {
+      lean(rgb, .282, .235, .196);
+    },
+    "coffee": function(rgb) {
+      lean(rgb, .31, .235, .06);
+    },
     "sky": function(rgb) {
       var x = (1 - rgb.b) * (1 - (rgb.g + rgb.r) / 2);
       rgb.g *= 1.5 * x;
