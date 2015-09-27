@@ -342,7 +342,7 @@
       }
 
       var color = new RGB(0, 0, 0);
-      var parts = colorName.split(/[^\w]/);
+      var parts = colorName.toLowerCase().split(/[^\w]/);
       var func = undefined;
       for(var i = parts.length - 1; i >= 0; i--)
       {
