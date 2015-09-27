@@ -40,7 +40,7 @@
   };
 
   RGB.prototype.isBright = function() {
-    return (this.r + this.g + this.b) / 3 > .5;
+    return (this.r + this.g * 1.8 + this.b * .3) / 3 > .5;
   };
 
   var lean = function(color, rr, gg, bb) {
@@ -216,7 +216,7 @@
     "night": function(rgb) {
       rgb.r *= .1;
       rgb.g *= .1;
-      rgb.b *= .2;
+      rgb.b += .2;
       desat(rgb, .1);
     },
     "rustic": function(rgb) {
@@ -246,6 +246,28 @@
       rgb.g *= .3;
       rgb.b *= .3;
       lean(rgb, .6, 0, 0);
+    },
+    "summer": function(rgb) {
+      rgb.r *= .3;
+      rgb.g *= .3;
+      sat(rgb, .45);
+    },
+    "summertime": function(rgb) {
+      rgb.r *= .5 + rgb.r;
+      rgb.g *= .5 + rgb.g;
+      sat(rgb, .5);
+      lean(rgb, .2, .3, .05);
+    },
+    "minion": function(rgb) {
+      desat(rgb, .3);
+      lean(rgb, 1, .9, .3);
+      sat(rgb, .4);
+    },
+    "playful": function(rgb) {
+      desat(rgb, .35);
+      rgb.r *= 1.4;
+      rgb.g *= 1.1;
+      sat(rgb, .25);
     },
     "toasted": function(rgb) {
       rgb.r *= .8;
