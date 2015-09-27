@@ -376,6 +376,15 @@
       rgb.b *= .6;
       rgb.g *= .85;
       sat(rgb, .05);
+    },
+    "apple": function(rgb) {
+      desat(rgb, .1);
+      rgb.r += .2;
+      rgb.g += .2;
+      rgb.b *= .6;
+    },
+    "pie": function(rgb) {
+      lean(rgb, .45, .4, 0);
     }
   };
   Incantate = {
