@@ -352,6 +352,18 @@
     "alien": function(rgb) {
       desat(rgb, .25);
       lean(rgb, 0, 1, .2);
+    },
+    "pug": function(rgb) {
+      desat(rgb, .45);
+      lean(rgb, .3, .3, .1);
+      lighten(rgb, .65);
+      rgb.b *= .75;
+    },
+    "pugs": function(rgb) {
+      desat(rgb, .45);
+      lean(rgb, .3, .3, .1);
+      lighten(rgb, .65);
+      rgb.b *= .55;
     }
   };
   Incantate = {
