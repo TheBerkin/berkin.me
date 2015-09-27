@@ -268,6 +268,11 @@
       rgb.g *= 1.1;
       rgb.b *= .8;
     },
+    "hot": function(rgb) {
+      sat(rgb, .7);
+      rgb.r += .05;
+      rgb.r *= 2;
+    },
     "warm": function(rgb) {
       rgb.b *= .75;
       rgb.r += .15;
@@ -277,6 +282,12 @@
       rgb.b += .2;
       rgb.r *= .6;
       rgb.g *= .9;
+    },
+    "cold": function(rgb) {
+      desat(rgb, .3);
+      rgb.b += .2;
+      rgb.g += .05;
+      rgb.b *= 1.1;
     },
     "charcoal": function(rgb) {
       lighten(rgb, .1);
@@ -381,6 +392,7 @@
       desat(rgb, .1);
       rgb.r += .2;
       rgb.g += .2;
+      lighten(rgb, .4);
       rgb.b *= .6;
     },
     "pie": function(rgb) {
