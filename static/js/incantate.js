@@ -494,6 +494,12 @@
       sat(rgb, .2);
       lighten(rgb, .4);
       rgb.r += .2;
+    },
+    "dream": function(rgb) {
+      desat(rgb, .1);
+      rgb.g += .1;
+      rgb.b += .22;
+      lighten(rgb, .3);
     }
   };
   Incantate = {
