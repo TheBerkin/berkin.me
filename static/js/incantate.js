@@ -231,6 +231,17 @@
       rgb.b *= .75;
       desat(rgb, .7);
     },
+    "moldy": function(rgb) {
+      rgb.r *= .8;
+      rgb.g += .15;
+      rgb.b *= .85;
+      desat(rgb, .7);
+    },
+    "old": function(rgb) {
+      rgb.r *= 1.1;
+      rgb.g *= 1.2;
+      desat(rgb, .7);
+    },
     "dead": function(rgb) {
       desat(rgb, .25);
       rgb.b *= 1.2;
@@ -239,6 +250,26 @@
     "shit": function(rgb) {
       rgb.r = (rgb.r + 1) * .24;
       rgb.g = (rgb.g + 1) * .18;
+      rgb.b *= 0.1;
+    },
+    "poo": function(rgb) {
+      rgb.r = (rgb.r + 1) * .34;
+      rgb.g = (rgb.g + 1) * .24;
+      rgb.b *= 0.1;
+    },
+    "poop": function(rgb) {
+      rgb.r = (rgb.r + 1) * .24;
+      rgb.g = (rgb.g + 1) * .2;
+      rgb.b *= 0.1;
+    },
+    "feces": function(rgb) {
+      rgb.r = (rgb.r + 1) * .2;
+      rgb.g = (rgb.g + 1) * .12;
+      rgb.b *= 0.1;
+    },
+    "chocolate": function(rgb) {
+      rgb.r = (rgb.r + 1) * .3;
+      rgb.g = (rgb.g + 1) * .2;
       rgb.b *= 0.1;
     },
     "piss": function(rgb) {
@@ -258,6 +289,31 @@
       rgb.g *= 1.2;
       rgb.b += 0.2;
       rgb.b *= 1.2;
+    },
+    "man": function(rgb) {
+      rgb.r += .6;
+      rgb.g += .44;
+      rgb.b += .22;
+      rgb.r *= 1.5;
+      desat(rgb, .15);
+      lighten(rgb, .23);
+    },
+    "dude": function(rgb) {
+      rgb.r += .65;
+      rgb.g += .44;
+      rgb.b += .22;
+      rgb.r *= 1.5;
+      desat(rgb, .15);
+      lighten(rgb, .18);
+    },
+    "true": function(rgb) {
+      var m = (rgb.r * 1.4 + rgb.g * 1.8 + rgb.b * .4) / 3;
+      rgb.b += .02;
+      lighten(rgb, .3);
+      desat(rgb, .1);
+      rgb.r *= m;
+      rgb.g *= m;
+      rgb.b *= m;
     },
     "night": function(rgb) {
       rgb.r *= .1;
@@ -500,6 +556,13 @@
       rgb.g += .1;
       rgb.b += .22;
       lighten(rgb, .3);
+    },
+    "denim": function(rgb) {
+      rgb.b += .6;
+      rgb.r += .5;
+      rgb.r *= .2;
+      rgb.g += .6;
+      rgb.g *= .3;
     }
   };
   Incantate = {
