@@ -145,8 +145,15 @@
     "blue": function(rgb) {
       lean(rgb, 0, 0, 1);
     },
+    "navy": function(rgb) {
+      rgb.b *= .5;
+      lean(rgb, 0, 0, .6);
+    },
     "magenta": function(rgb) {
       lean(rgb, 1, 0, 1);
+    },
+    "fuchsia": function(rgb) {
+      lean(rgb, .65, .22, .65);
     },
     "cyan": function(rgb) {
       lean(rgb, 0, 1, 1);
@@ -593,7 +600,7 @@
     getColor: function(colorName) {
       if (colorName == undefined || colorName.length == 0)
       {
-        return "#000000";
+        return new RGB(0, 0, 0);
       }
 
       var color = new RGB(0, 0, 0);
