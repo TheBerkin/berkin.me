@@ -364,6 +364,13 @@
       lean(rgb, .3, .3, .1);
       lighten(rgb, .65);
       rgb.b *= .55;
+    },
+    "dog": function(rgb) {
+      lighten(rgb, .3);
+      desat(rgb, .05);
+      rgb.b *= .6;
+      rgb.g *= .85;
+      sat(rgb, .05);
     }
   };
   Incantate = {
