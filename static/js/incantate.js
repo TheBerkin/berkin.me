@@ -129,6 +129,13 @@
     rgb.b *= x;
   }
 
+  var ig = function(rgb) {
+    var x = (1 - clamp(rgb.g, 0, 1)) * clamp(1 - (rgb.b + rgb.r) / 2, 0, 1);
+    rgb.r *= x;
+    rgb.g *= x;
+    rgb.b *= x;
+  }
+
   var invert = function(rgb) {
     rgb.r = 1 - rgb.r;
     rgb.g = 1 - rgb.g;
@@ -172,6 +179,9 @@
     },
     "vomit": function(rgb) {
       lean(rgb, .5, .9, .24);
+    },
+    "puke": function(rgb) {
+      lean(rgb, .25, .4, .15);
     },
     "blue": function(rgb) {
       lean(rgb, 0, 0, 1);
@@ -232,7 +242,21 @@
       lean(rgb, .5, 0, 0);
     },
     "yellowish": function(rgb) {
+      lean(rgb, .7, .7, 0);
+    },
+    "olive": function(rgb) {
+      ig(rgb);
       lean(rgb, .5, .5, 0);
+    },
+    "royal": function(rgb) {
+      sat(rgb, 1);
+      lighten(rgb, .2);
+      if (rgb.b > rgb.r + rgb.g)
+      {
+        rgb.g += .4;
+        rgb.r += .1;
+      }
+      darken(rgb, .3);
     },
     "greenish": function(rgb) {
       lean(rgb, 0, .5, 0);
@@ -245,6 +269,9 @@
     },
     "purple": function(rgb) {
       lean(rgb, .3, 0, .3);
+    },
+    "burgundy": function(rgb) {
+      lean(rgb, .5647, 0, .1254);
     },
     "orange": function(rgb) {
       lean(rgb, 1, .55, 0);
@@ -267,6 +294,12 @@
     "brown": function(rgb) {
       lean(rgb, .4, .3, .1);
     },
+    "blonde": function(rgb) {
+      lean(rgb, .98, .94, .72);
+    },
+    "blond": function(rgb) {
+      lean(rgb, .98, .94, .75);
+    },
     "brick": function(rgb) {
       lean(rgb, .75, .2, .1);
     },
@@ -280,8 +313,24 @@
     "grapefruit": function(rgb) {
       lean(rgb, 1, .35, .35);
     },
+    "amaranth": function(rgb) {
+      desat(rgb, .1);
+      darken(rgb, .5);
+      lean(rgb, .9, .17, .31);
+    },
     "dull": function(rgb) {
       desat(rgb, .75);
+    },
+    "antique": function(rgb) {
+      desat(rgb, .1);
+      darken(rgb, .1);
+      rgb.b *= .9;
+    },
+    "bitter": function(rgb) {
+      desat(rgb, .12);
+      rgb.r += .12;
+      rgb.g += .08;
+      rgb.g *= 1.1;
     },
     "pale": function(rgb) {
       lighten(rgb, .2);
@@ -660,6 +709,15 @@
       sat(rgb, .2);
       lighten(rgb, .4);
       rgb.r += .2;
+    },
+    "anus": function(rgb) {
+      desat(rgb, .2);
+      rgb.r += .18;
+      rgb.b *= .62;
+      rgb.g *= .635;
+      sat(rgb, .23);
+      lighten(rgb, .45);
+      rgb.r += .15;
     },
     "dream": function(rgb) {
       desat(rgb, .1);
