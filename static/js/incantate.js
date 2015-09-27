@@ -184,6 +184,9 @@
     "blueberry": function(rgb) {
       lean(rgb, .2, .22, .45);
     },
+    "cerulean": function(rgb) {
+      lean(rgb, 0, .25, 1);
+    },
     "pink": function(rgb) {
       lean(rgb, 1, .6, .6);
     },
