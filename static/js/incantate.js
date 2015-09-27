@@ -434,6 +434,7 @@
       darken(rgb, .75);
       sat(rgb, .8);
       rgb.g += .05;
+      darken(rgb, .3);
     },
     "catastrophic": function(rgb) {
       rgb.g += rgb.r;
@@ -477,6 +478,13 @@
       rgb.r += .25;
       rgb.g += .1;
       rgb.b += .05;
+    },
+    "bloody": function(rgb) {
+      desat(rgb, .1);
+      rgb.g *= .65;
+      rgb.b *= .6;
+      darken(rgb, .5);
+      rgb.r *= 1.4;
     }
   };
   Incantate = {
