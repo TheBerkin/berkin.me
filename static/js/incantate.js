@@ -139,6 +139,15 @@
     "blue": function(rgb) {
       lean(rgb, 0, 0, 1);
     },
+    "magenta": function(rgb) {
+      lean(rgb, 1, 0, 1);
+    },
+    "cyan": function(rgb) {
+      lean(rgb, 0, 1, 1);
+    },
+    "teal": function(rgb) {
+      lean(rgb, .1, .4, .7);
+    },
     "reddish": function(rgb) {
       lean(rgb, .5, 0, 0);
     },
@@ -165,6 +174,12 @@
     },
     "pink": function(rgb) {
       lean(rgb, 1, .6, .6);
+    },
+    "brown": function(rgb) {
+      lean(rgb, .4, .3, .1);
+    },
+    "brick": function(rgb) {
+      lean(rgb, .75, .2, .1);
     },
     "grapefruit": function(rgb) {
       lean(rgb, 1, .35, .35);
