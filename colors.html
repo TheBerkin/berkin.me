@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Berkin's Color Creator</title>
+    <link rel="stylesheet" type="text/css" href="static/css/common.css" />
+    <link rel="stylesheet" type="text/css" href="static/css/incantate.css" />
+    <script type="text/javascript" src="static/js/jquery.js"></script>
+    <script type="text/javascript" src="static/js/incantate.js"></script>
+  </head>
+  <body>
+    <h1 class="centered">Berkin's Color Creator</h1>
+    <div class="centered">
+      <p>
+        Type the name of any color you want.
+      </p>
+
+      <div class="colorsample" id="color">
+          <input type="text" id="colorname">
+          <span class="colorhex" id="colorhex"></span>
+      </div>
+    </div>
+    <script type="text/javascript">
+      (function() {
+        var colorNameField = $("#colorname");
+        var colorHexField = $("#colorhex");
+        var colorCard = $("#color");
+
+        var updateColor = function() {
+          var color = Incantate.getColor(colorNameField.val());
+          var textColor = color.isBright() ? "#000000" : "#cccccc";
+          colorCard.css("background-color", color.toString());
+          colorNameField.css("color", textColor);
+          colorNameField.css("border-color", textColor);
+          colorHexField.css("color", textColor);
+          colorHexField.text(color.toString());
+        }
+
+        colorNameField.on("input", function() {
+            updateColor();
+        });
+
+        colorNameField.val("black");
+        updateColor();
+      })();
+    </script>
+  </body>
+</html>
