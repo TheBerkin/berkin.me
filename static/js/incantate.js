@@ -4,7 +4,7 @@
   }
 
   var colorComponent = function(n) {
-    var ns = (clamp(n, 0, 1) * 255).toString(16).substr(0, 2);
+    var ns = Math.floor(clamp(n, 0, 1) * 255).toString(16).substr(0, 2);
     return ns.length == 1 ? "0" + ns : ns;
   }
 
