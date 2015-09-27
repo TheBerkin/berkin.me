@@ -245,6 +245,16 @@
       rgb.g *= 1.2;
       desat(rgb, .7);
     },
+    "gold": function(rgb) {
+      desat(rgb, .4);
+      lean(rgb, 1, .9, 0);
+    },
+    "golden": function(rgb) {
+      desat(rgb, .6);
+      rgb.b *= .1;
+      rgb.g *= 1.5;
+      rgb.r *= 1.6;
+    },
     "dead": function(rgb) {
       desat(rgb, .25);
       rgb.b *= 1.2;
