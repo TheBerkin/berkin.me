@@ -181,6 +181,9 @@
     "grape": function(rgb) {
       lean(rgb, .45, .15, .3);
     },
+    "blueberry": function(rgb) {
+      lean(rgb, .2, .22, .45);
+    },
     "pink": function(rgb) {
       lean(rgb, 1, .6, .6);
     },
@@ -304,6 +307,14 @@
       rgb.b += .22;
       rgb.r *= 1.5;
       desat(rgb, .15);
+      lighten(rgb, .18);
+    },
+    "guy": function(rgb) {
+      rgb.r += .69;
+      rgb.g += .42;
+      rgb.b += .2;
+      rgb.r *= 1.7;
+      desat(rgb, .12);
       lighten(rgb, .18);
     },
     "true": function(rgb) {
