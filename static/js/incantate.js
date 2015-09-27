@@ -326,6 +326,12 @@
       rgb.b += .05;
       rgb.b *= 1.1;
       darken(rgb, .5);
+    },
+    "frog": function(rgb) {
+      rgb.r += .1;
+      rgb.g += .4;
+      rgb.b += .1;
+      lean(rgb, .35, .6, .35);
     }
   };
   Incantate = {
