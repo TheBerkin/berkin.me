@@ -170,6 +170,9 @@
     "chartreuse": function(rgb) {
       lean(rgb, .5, 1, 0);
     },
+    "vomit": function(rgb) {
+      lean(rgb, .5, .9, .24);
+    },
     "blue": function(rgb) {
       lean(rgb, 0, 0, 1);
     },
