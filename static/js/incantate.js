@@ -164,6 +164,16 @@
     "turquoise": function(rgb) {
       lean(rgb, .1, .6, .7);
     },
+    "azure": function(rgb) {
+      lean(rgb, 0, .5, 1);
+    },
+    "sky": function(rgb) {
+      var x = (1 - rgb.b) * (1 - (rgb.g + rgb.r) / 2);
+      rgb.g *= 1.5 * x;
+      rgb.b *= 2 * x;
+      rgb.r *= .5 * x;
+      lean(rgb, .4, .63, 1);
+    },
     "reddish": function(rgb) {
       lean(rgb, .5, 0, 0);
     },
