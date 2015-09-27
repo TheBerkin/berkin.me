@@ -116,6 +116,12 @@
     rgb.b -= rgb.b * amount;
   };
 
+  var lerp = function(rgb, r, g, b, amount) {
+    rgb.r += (r - rgb.r) * amount;
+    rgb.g += (g - rgb.g) * amount;
+    rgb.b += (b - rgb.b) * amount;
+  }
+
   var funcs =  {
     "black": function(rgb) {
       rgb.r *= .2;
@@ -200,6 +206,10 @@
       rgb.g *= 2.0;
       rgb.b += 0.3;
       rgb.b *= 2.0;
+    },
+    "vanilla": function(rgb) {
+      lighten(rgb, .2);
+      lerp(rgb, 1, 1, .75, .75);
     },
     "dark": function(rgb) {
       darken(rgb, .5);
@@ -288,6 +298,16 @@
       rgb.r *= .8;
       rgb.g *= .75;
       rgb.b *= .5;
+    },
+    "death": function(rgb) {
+      desat(rgb, .65);
+      rgb.r += .2;
+      rgb.r *= 1.5;
+      rgb.g += .05;
+      rgb.g *= 1.1;
+      rgb.b += .05;
+      rgb.b *= 1.1;
+      darken(rgb, .5);
     }
   };
   Incantate = {
