@@ -154,6 +154,9 @@
     "teal": function(rgb) {
       lean(rgb, .1, .4, .7);
     },
+    "turquoise": function(rgb) {
+      lean(rgb, .1, .6, .7);
+    },
     "reddish": function(rgb) {
       lean(rgb, .5, 0, 0);
     },
@@ -389,14 +392,21 @@
       sat(rgb, .05);
     },
     "apple": function(rgb) {
-      desat(rgb, .1);
-      rgb.r += .2;
-      rgb.g += .2;
-      lighten(rgb, .4);
+      var f = (rgb.r + rgb.g) / 2;
+      rgb.r *= rgb.r * rgb.r;
+      rgb.g *= rgb.g * rgb.g;
+      rgb.r += .6;
+      rgb.g += .5;
+      rgb.r *= 1.6;
+      rgb.g *= 1.5;
       rgb.b *= .6;
+      darken(rgb, f);
     },
     "pie": function(rgb) {
       lean(rgb, .45, .4, 0);
+      rgb.r += .1;
+      rgb.b *= .6;
+      rgb.g *= .7;
     },
     "vibrant": function(rgb) {
       sat(rgb, .8);
@@ -406,8 +416,11 @@
       sat(rgb, .6);
     },
     "deep": function(rgb) {
-      darken(rgb, .25);
+      darken(rgb, .9);
       sat(rgb, .3);
+      rgb.r *= 10;
+      rgb.g *= 10;
+      rgb.b *= 10;
     },
     "miracle": function(rgb) {
       rgb.g += .25;
@@ -444,6 +457,26 @@
       rgb.b *= 1.05;
       rgb.r *= 1.1;
       rgb.g *= 1.1;
+    },
+    "electric": function(rgb) {
+      rgb.g += .8;
+      rgb.b += 1.5;
+      rgb.r *= .9;
+      rgb.r += .3;
+      desat(rgb, .2);
+      lighten(rgb, .3);
+    },
+    "cherry": function(rgb) {
+      darken(rgb, .5);
+      rgb.r += .4;
+      rgb.g *= .2;
+      rgb.b *= .2;
+    },
+    "cinnamon": function(rgb) {
+      darken(rgb, .5);
+      rgb.r += .25;
+      rgb.g += .1;
+      rgb.b += .05;
     }
   };
   Incantate = {
