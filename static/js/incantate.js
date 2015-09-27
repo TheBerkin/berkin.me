@@ -136,6 +136,9 @@
     "red": function(rgb) {
       lean(rgb, 1, 0, 0);
     },
+    "puce": function(rgb) {
+      lean(rgb, .447, .203, .215);
+    },
     "yellow": function(rgb) {
       lean(rgb, 1, 1, 0);
     },
@@ -155,8 +158,14 @@
     "fuchsia": function(rgb) {
       lean(rgb, .65, .22, .65);
     },
+    "mauve": function(rgb) {
+      lean(rgb, .87, .64, 1);
+    },
     "cyan": function(rgb) {
       lean(rgb, 0, 1, 1);
+    },
+    "aqua": function(rgb) {
+      lean(rgb, 0, .8, .75);
     },
     "teal": function(rgb) {
       lean(rgb, .1, .4, .7);
@@ -173,6 +182,13 @@
       rgb.b *= 2 * x;
       rgb.r *= .5 * x;
       lean(rgb, .4, .63, 1);
+    },
+    "cornflower": function(rgb) {
+      var x = (1 - rgb.b) * (1 - (rgb.g + rgb.r) / 2);
+      rgb.g *= x;
+      rgb.b *= x;
+      rgb.r *= x;
+      lean(rgb, .392, .584, .929);
     },
     "reddish": function(rgb) {
       lean(rgb, .5, 0, 0);
