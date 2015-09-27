@@ -122,6 +122,13 @@
     rgb.b += (b - rgb.b) * amount;
   }
 
+  var ib = function(rgb) {
+    var x = (1 - clamp(rgb.b, 0, 1)) * clamp(1 - (rgb.g + rgb.r) / 2, 0, 1);
+    rgb.r *= x;
+    rgb.g *= x;
+    rgb.b *= x;
+  }
+
   var funcs =  {
     "black": function(rgb) {
       rgb.r *= .2;
@@ -192,24 +199,15 @@
       lean(rgb, .31, .235, .06);
     },
     "sky": function(rgb) {
-      var x = (1 - rgb.b) * (1 - (rgb.g + rgb.r) / 2);
-      rgb.g *= 1.5 * x;
-      rgb.b *= 2 * x;
-      rgb.r *= .5 * x;
+      ib(rgb);
       lean(rgb, .4, .63, 1);
     },
     "cornflower": function(rgb) {
-      var x = (1 - rgb.b) * (1 - (rgb.g + rgb.r) / 2);
-      rgb.g *= x;
-      rgb.b *= x;
-      rgb.r *= x;
+      ib(rgb);
       lean(rgb, .392, .584, .929);
     },
     "periwinkle": function(rgb) {
-      var x = (1 - rgb.b) * (1 - (rgb.g + rgb.r) / 2);
-      rgb.g *= x;
-      rgb.b *= x;
-      rgb.r *= x;
+      ib(rgb);
       lean(rgb, .8, .8, 1);
     },
     "reddish": function(rgb) {
