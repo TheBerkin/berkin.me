@@ -152,6 +152,9 @@
     "yellow": function(rgb) {
       lean(rgb, 1, 1, 0);
     },
+    "beige": function(rgb) {
+      lean(rgb, .961, .961, .863);
+    },
     "amber": function(rgb) {
       lean(rgb, 1, .75, 0);
     },
