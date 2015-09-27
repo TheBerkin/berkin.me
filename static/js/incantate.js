@@ -485,6 +485,15 @@
       rgb.b *= .6;
       darken(rgb, .5);
       rgb.r *= 1.4;
+    },
+    "penis": function(rgb) {
+      desat(rgb, .2);
+      rgb.r += .2;
+      rgb.b *= .65;
+      rgb.g *= .65;
+      sat(rgb, .2);
+      lighten(rgb, .4);
+      rgb.r += .2;
     }
   };
   Incantate = {
