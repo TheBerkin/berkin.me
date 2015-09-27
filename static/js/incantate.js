@@ -385,6 +385,53 @@
     },
     "pie": function(rgb) {
       lean(rgb, .45, .4, 0);
+    },
+    "vibrant": function(rgb) {
+      sat(rgb, .8);
+      lighten(rgb, .2);
+    },
+    "bright": function(rgb) {
+      sat(rgb, .6);
+    },
+    "deep": function(rgb) {
+      darken(rgb, .25);
+      sat(rgb, .3);
+    },
+    "miracle": function(rgb) {
+      rgb.g += .25;
+      rgb.r += .3;
+      desat(rgb, .1);
+      lighten(rgb, .45);
+      rgb.b *= .8;
+    },
+    "disaster": function(rgb) {
+      lean(rgb, .95, .2, .05);
+      darken(rgb, .75);
+      sat(rgb, .8);
+      rgb.g += .05;
+    },
+    "catastrophic": function(rgb) {
+      rgb.g += rgb.r;
+      rgb.b += rgb.r;
+      rgb.r *= 2;
+      darken(rgb, .1);
+      sat(rgb, .35);
+    },
+    "violent": function(rgb) {
+      rgb.r += .1;
+      sat(rgb, .6);
+    },
+    "shitty": function(rgb) {
+      rgb.b *= .2;
+      rgb.r += .3;
+      rgb.g += .1;
+      darken(rgb, .5);
+    },
+    "dirty": function(rgb) {
+      darken(rgb, .3);
+      rgb.b *= 1.05;
+      rgb.r *= 1.1;
+      rgb.g *= 1.1;
     }
   };
   Incantate = {
