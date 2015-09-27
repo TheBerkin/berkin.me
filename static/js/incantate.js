@@ -171,7 +171,7 @@
       lean(rgb, 0, .8, .75);
     },
     "teal": function(rgb) {
-      lean(rgb, .1, .4, .7);
+      lean(rgb, 0, .5, .5);
     },
     "turquoise": function(rgb) {
       lean(rgb, .1, .6, .7);
