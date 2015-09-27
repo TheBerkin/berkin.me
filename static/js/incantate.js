@@ -207,6 +207,50 @@
       desat(rgb, .25);
       rgb.b *= 1.2;
       rgb.g *= 1.1;
+    },
+    "shit": function(rgb) {
+      rgb.r = (rgb.r + 1) * .24;
+      rgb.g = (rgb.g + 1) * .18;
+      rgb.b *= 0.1;
+    },
+    "night": function(rgb) {
+      rgb.r *= .1;
+      rgb.g *= .1;
+      rgb.b *= .2;
+      desat(rgb, .1);
+    },
+    "rustic": function(rgb) {
+      desat(rgb, .9);
+      rgb.r *= 1.3;
+      rgb.g *= 1.1;
+      rgb.b *= .8;
+    },
+    "warm": function(rgb) {
+      rgb.b *= .75;
+      rgb.r += .15;
+      rgb.g += .1;
+    },
+    "cool": function(rgb) {
+      rgb.b += .2;
+      rgb.r *= .6;
+      rgb.g *= .9;
+    },
+    "charcoal": function(rgb) {
+      lighten(rgb, .1);
+      desat(rgb, .8);
+      rgb.r *= .4;
+      rgb.g *= .4;
+      rgb.b *= .4;
+    },
+    "blood": function(rgb) {
+      rgb.g *= .3;
+      rgb.b *= .3;
+      lean(rgb, .6, 0, 0);
+    },
+    "toasted": function(rgb) {
+      rgb.r *= .8;
+      rgb.g *= .75;
+      rgb.b *= .5;
     }
   };
   Incantate = {
