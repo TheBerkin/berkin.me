@@ -192,6 +192,9 @@
     "aqua": function(rgb) {
       lean(rgb, 0, .8, .75);
     },
+    "aquamarine": function(rgb) {
+      lean(rgb, .5, 1, .832);
+    },
     "teal": function(rgb) {
       lean(rgb, 0, .5, .5);
     },
@@ -242,6 +245,9 @@
     },
     "orange": function(rgb) {
       lean(rgb, 1, .55, 0);
+    },
+    "ochre": function(rgb) {
+      lean(rgb, .8, .467, .135);
     },
     "grape": function(rgb) {
       lean(rgb, .45, .15, .3);
