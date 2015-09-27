@@ -129,6 +129,12 @@
     rgb.b *= x;
   }
 
+  var invert = function(rgb) {
+    rgb.r = 1 - rgb.r;
+    rgb.g = 1 - rgb.g;
+    rgb.b = 1 - rgb.b;
+  }
+
   var funcs =  {
     "black": function(rgb) {
       rgb.r *= .2;
@@ -160,6 +166,9 @@
     },
     "green": function(rgb) {
       lean(rgb, 0, 1, 0);
+    },
+    "chartreuse": function(rgb) {
+      lean(rgb, .5, 1, 0);
     },
     "blue": function(rgb) {
       lean(rgb, 0, 0, 1);
@@ -252,6 +261,13 @@
     "brick": function(rgb) {
       lean(rgb, .75, .2, .1);
     },
+    "rust": function(rgb) {
+      lean(rgb, .7, .4, .1);
+    },
+    "rusty": function(rgb) {
+      darken(rgb, .7);
+      lean(rgb, .7, .4, .1);
+    },
     "grapefruit": function(rgb) {
       lean(rgb, 1, .35, .35);
     },
@@ -338,6 +354,11 @@
       rgb.r = (rgb.r + 1) * .2;
       rgb.g = (rgb.g + 1) * .12;
       rgb.b *= 0.1;
+    },
+    "turd": function(rgb) {
+      rgb.r = (rgb.r + 1) * .22;
+      rgb.g = (rgb.g + 1) * .155;
+      rgb.b *= 0.12;
     },
     "chocolate": function(rgb) {
       rgb.r = (rgb.r + 1) * .3;
@@ -643,7 +664,10 @@
       rgb.r *= .2;
       rgb.g += .6;
       rgb.g *= .3;
-    }
+    },
+    "compliment": invert,
+    "inverted": invert,
+    "inverse": invert
   };
   Incantate = {
     getColor: function(colorName) {
