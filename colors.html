@@ -15,7 +15,7 @@
       </p>
 
       <div class="colorsample" id="color">
-          <input type="text" id="colorname">
+          <input type="text" id="colorname" required>
           <span class="colorhex" id="colorhex"></span>
       </div>
       <p class="note">
@@ -44,7 +44,6 @@
             updateColor();
         });
 
-        colorNameField.val("black");
         updateColor();
       })();
     </script>
