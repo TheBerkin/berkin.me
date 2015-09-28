@@ -523,6 +523,13 @@
       rgb.b += .2;
       desat(rgb, .1);
     },
+    "day": function(rgb) {
+      desat(rgb, .2);
+      lighten(rgb, .65);
+      rgb.g *= 1.2;
+      rgb.r *= 1.3;
+      rgb.b *= .78;
+    },
     "rustic": function(rgb) {
       desat(rgb, .9);
       rgb.r *= 1.3;
@@ -532,7 +539,7 @@
     "hot": function(rgb) {
       sat(rgb, .7);
       rgb.r += .05;
-      rgb.r *= 2;
+      rgb.r *= 1.4;
     },
     "warm": function(rgb) {
       rgb.b *= .75;
@@ -556,6 +563,13 @@
       rgb.r *= .4;
       rgb.g *= .4;
       rgb.b *= .4;
+    },
+    "tea": function(rgb) {
+      darken(rgb, .8);
+      lighten(rgb, .3);
+      sat(rgb, .5);
+      rgb.r *= 1.35;
+      rgb.b *= .8;
     },
     "blood": function(rgb) {
       rgb.g *= .3;
@@ -582,6 +596,18 @@
       desat(rgb, .35);
       rgb.r *= 1.4;
       rgb.g *= 1.1;
+      sat(rgb, .25);
+    },
+    "cheery": function(rgb) {
+      desat(rgb, .35);
+      rgb.r *= 1.5;
+      rgb.g *= 1.1;
+      sat(rgb, .25);
+    },
+    "happy": function(rgb) {
+      desat(rgb, .35);
+      rgb.r *= 1.5;
+      rgb.g *= 1.25;
       sat(rgb, .25);
     },
     "toasted": function(rgb) {
@@ -633,6 +659,11 @@
       desat(rgb, .8);
       lighten(rgb, .7);
       rgb.b *= .85;
+    },
+    "cum": function(rgb) {
+      desat(rgb, .8);
+      lighten(rgb, .75);
+      rgb.b *= .875;
     },
     "alien": function(rgb) {
       desat(rgb, .25);
