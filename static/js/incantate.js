@@ -582,6 +582,10 @@
       rgb.g *= .65;
       rgb.b *= .4;
     },
+    "salty": function(rgb) {
+      desat(rgb, .12);
+      lighten(rgb, .08);
+    },
     "death": function(rgb) {
       desat(rgb, .65);
       rgb.r += .2;
