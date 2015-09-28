@@ -18,6 +18,26 @@
   border-right: none;
 }
 
+::-webkit-input-placeholder
+{
+   font-style: italic;
+}
+
+:-moz-placeholder
+{
+   font-style: italic;
+}
+
+::-moz-placeholder
+{
+   font-style: italic;
+}
+
+:-ms-input-placeholder
+{
+   font-style: italic;
+}
+
 .colorsample *
 {
   padding: 4px;
