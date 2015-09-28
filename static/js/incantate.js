@@ -179,6 +179,9 @@
     "yellow": function(rgb) {
       lean(rgb, 1, 1, 0);
     },
+    "lemon": function(rgb) {
+      lean(rgb, 1, .97, 0);
+    },
     "beige": function(rgb) {
       lean(rgb, .961, .961, .863);
     },
@@ -193,6 +196,9 @@
     },
     "chartreuse": function(rgb) {
       lean(rgb, .5, 1, 0);
+    },
+    "lime": function(rgb) {
+      lean(rgb, .75, 1, 0);
     },
     "vomit": function(rgb) {
       lean(rgb, .5, .9, .24);
