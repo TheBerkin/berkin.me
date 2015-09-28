@@ -586,6 +586,10 @@
       desat(rgb, .12);
       lighten(rgb, .08);
     },
+    "salted": function(rgb) {
+      desat(rgb, .14);
+      lighten(rgb, .1);
+    },
     "death": function(rgb) {
       desat(rgb, .65);
       rgb.r += .2;
