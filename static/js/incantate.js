@@ -228,6 +228,10 @@
     "azure": function(rgb) {
       lean(rgb, 0, .5, 1);
     },
+    "breeze": function(rgb) {
+      lighten(rgb, .6);
+      rgb.b += .06;
+    },
     "sea": function(rgb) {
       darken(rgb, .5);
       desat(rgb, .3);
@@ -238,7 +242,7 @@
     },
     "ocean": function(rgb) {
       darken(rgb, .5);
-      desat(rgb, .3);
+      desat(rgb, .4);
       rgb.g += rgb.b;
       rgb.g += .25;
       rgb.b += .45;
@@ -446,7 +450,7 @@
       rgb.b *= 0.12;
     },
     "chocolate": function(rgb) {
-      rgb.r = (rgb.r + 1) * .3;
+      rgb.r = (rgb.r + 1) * .5;
       rgb.g = (rgb.g + 1) * .2;
       rgb.b *= 0.1;
     },
@@ -761,7 +765,19 @@
     },
     "compliment": invert,
     "inverted": invert,
-    "inverse": invert
+    "inverse": invert,
+    "of": function(rgb) {
+      var b = rgb.isBright();
+      sat(rgb, 2.5);
+      if (b)
+      {
+        darken(rgb, .3);
+      }
+      else
+      {
+        lighten(rgb, .3);
+      }
+    }
   };
   Incantate = {
     getColor: function(colorName) {
