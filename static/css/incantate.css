@@ -7,12 +7,12 @@
   font-size: 1.2em;
   border: none;
   outline: none;
-  width: 50%;
+  width: 60%;
 }
 
 #colorname:invalid
 {
-  border: 1px dotted #fff;
+  border: 1px dashed #666;
   border-top: none;
   border-left: none;
   border-right: none;
