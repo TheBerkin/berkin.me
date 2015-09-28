@@ -163,6 +163,9 @@
     "red": function(rgb) {
       lean(rgb, 1, 0, 0);
     },
+    "crimson": function(rgb) {
+      lean(rgb, .863, .079, .236);
+    },
     "vermillion": function(rgb) {
       lean(rgb, .890, .259, .204);
     },
@@ -178,6 +181,9 @@
     },
     "beige": function(rgb) {
       lean(rgb, .961, .961, .863);
+    },
+    "khaki": function(rgb) {
+      lean(rgb, .76, .69, .57);
     },
     "amber": function(rgb) {
       lean(rgb, 1, .75, 0);
