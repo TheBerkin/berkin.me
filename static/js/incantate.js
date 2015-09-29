@@ -799,9 +799,11 @@
     },
     "spicy": function(rgb) {
       darken(rgb, .3);
-      rgb.r += .35;
+      rgb.r += .45;
       rgb.g += .2;
       rgb.b += .05;
+      sat(rgb, .3);
+      darken(rgb, .2);
     },
     "spice": function(rgb) {
       darken(rgb, .65);
