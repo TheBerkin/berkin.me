@@ -43,8 +43,7 @@
     return (this.r * 1.3 + this.g * 1.8 + this.b * .3) / 3 > .5;
   };
 
-  var lean = function(color, rr, gg, bb) {
-    /*
+  var lean = function(color, rr, gg, bb) {    
     if (color.r > 0)
     {
       color.r = (color.r + color.r + rr) / 2.0;
@@ -71,10 +70,6 @@
     {
       color.b += bb;
     }
-    */
-    color.r = (color.r + rr) / 2;
-    color.g = (color.g + gg) / 2;
-    color.b = (color.b + bb) / 2;
   }
 
   var desat = function(rgb, amount) {
