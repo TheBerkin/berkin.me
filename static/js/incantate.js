@@ -44,6 +44,7 @@
   };
 
   var lean = function(color, rr, gg, bb) {
+    /*
     if (color.r > 0)
     {
       color.r = (color.r + color.r + rr) / 2.0;
@@ -70,6 +71,10 @@
     {
       color.b += bb;
     }
+    */
+    color.r = (color.r + rr) / 2;
+    color.g = (color.g + gg) / 2;
+    color.b = (color.b + bb) / 2;
   }
 
   var desat = function(rgb, amount) {
@@ -149,113 +154,73 @@
     rgb.b = 1 - rgb.b;
   }
 
-  var funcs =  {
-    "black": function(rgb) {
-      rgb.r *= .2;
-      rgb.g *= .2;
-      rgb.b *= .2;
-    },
-    "grey": grey,
-    "gray": grey,
-    "white": function(rgb) {
-      lean(rgb, 1, 1, 1);
-    },
-    "red": function(rgb) {
-      lean(rgb, 1, 0, 0);
-    },
-    "crimson": function(rgb) {
-      lean(rgb, .863, .079, .236);
-    },
-    "maroon": function(rgb) {
-      lean(rgb, .502, 0, 0);
-    },
-    "vermillion": function(rgb) {
-      lean(rgb, .890, .259, .204);
-    },
-    "facepunch": function(rgb) {
-      ir(rgb);
-      lean(rgb, .72, 0, 0);
-    },
-    "puce": function(rgb) {
-      lean(rgb, .447, .203, .215);
-    },
-    "yellow": function(rgb) {
-      lean(rgb, 1, 1, 0);
-    },
-    "lemon": function(rgb) {
-      lean(rgb, 1, .97, 0);
-    },
-    "beige": function(rgb) {
-      lean(rgb, .961, .961, .863);
-    },
-    "khaki": function(rgb) {
-      lean(rgb, .76, .69, .57);
-    },
-    "cream": function(rgb) {
-      lean(rgb, .961, .961, .8);
-    },
-    "peach": function(rgb) {
-      lean(rgb, 1, .899, .706);
-    },
-    "amber": function(rgb) {
-      lean(rgb, 1, .75, 0);
-    },
-    "green": function(rgb) {
-      lean(rgb, 0, 1, 0);
-    },
-    "chartreuse": function(rgb) {
-      lean(rgb, .5, 1, 0);
-    },
-    "lime": function(rgb) {
-      lean(rgb, .75, 1, 0);
-    },
-    "vomit": function(rgb) {
-      lean(rgb, .5, .9, .24);
-    },
-    "puke": function(rgb) {
-      lean(rgb, .25, .4, .15);
-    },
-    "blue": function(rgb) {
-      lean(rgb, 0, 0, 1);
-    },
-    "navy": function(rgb) {
-      rgb.b *= .5;
-      lean(rgb, 0, 0, .6);
-    },
-    "indigo": function(rgb) {
-      rgb.b *= .5;
-      lean(rgb, .295, 0, .51);
-    },
-    "lilac": function(rgb) {
-      lean(rgb, .785, .636, .785);
-    },
-    "magenta": function(rgb) {
-      lean(rgb, 1, 0, 1);
-    },
-    "fuchsia": function(rgb) {
-      lean(rgb, .65, .22, .65);
-    },
-    "mauve": function(rgb) {
-      lean(rgb, .87, .64, 1);
-    },
-    "cyan": function(rgb) {
-      lean(rgb, 0, 1, 1);
-    },
-    "aqua": function(rgb) {
-      lean(rgb, 0, .8, .75);
-    },
-    "aquamarine": function(rgb) {
-      lean(rgb, .5, 1, .832);
-    },
-    "teal": function(rgb) {
-      lean(rgb, 0, .5, .5);
-    },
-    "turquoise": function(rgb) {
-      lean(rgb, .1, .6, .7);
-    },
-    "azure": function(rgb) {
-      lean(rgb, 0, .5, 1);
-    },
+  var bases = {
+    "black": [0, 0, 0],
+    "grey": [.5, .5, .5],
+    "gray": [.5, .5, .5],
+    "white": [1, 1, 1],
+    "red": [1, 0, 0],
+    "reddish": [.4, 0, 0],
+    "crimson": [.863, .079, .236],
+    "maroon": [.502, 0, 0],
+    "vermillion": [.890, .259, .204],
+    "facepunch": [.72, 0, 0],
+    "puce": [.447, .203, .215],
+    "orange": [1, .55, 0],
+    "gold": [1, .9, 0],
+    "yellow": [1, 1, 0],
+    "lemon": [1, .97, 0],
+    "beige": [.961, .961, .863],
+    "khaki": [.76, .69, .57],
+    "sepia": [1, .9, .5],
+    "blond": [.98, .94, .75],
+    "blonde": [.98, .94, .72],
+    "brown": [.4, .3, .1],
+    "rust": [.7, .4, .1],
+    "brick": [.75, .2, .1],
+    "burgundy": [.5647, 0, .1254],
+    "cream": [.961, .961, .8],
+    "peach": [1, .899, .706],
+    "amber": [1, .75, 0],
+    "green": [0, 1, 0],
+    "greenish": [0, .5, 0],
+    "forest": [0, .7, 0],
+    "chartreuse": [.5, 1, 0],
+    "lime": [.75, 1, 0],
+    "vomit": [.5, .9, .24],
+    "puke": [.25, .4, .15],
+    "blue": [0, 0, 1],
+    "bluish": [0, 0, .5],
+    "navy": [0, 0, .4],
+    "blueberry": [.2, .22, .45],
+    "indigo": [.295, 0, .51],
+    "lilac": [.785, .636, .785],
+    "magenta": [1, 0, 1],
+    "fuchsia": [.65, .22, .65],
+    "pink": [1, .6, .6],
+    "grape": [.45, .15, .3],
+    "mauve": [.87, .64, 1],
+    "cyan": [0, 1, 1],
+    "aqua": [0, .8, .75],
+    "cerulean": [0, .25, 1],
+    "aquamarine": [.5, 1, .832],
+    "teal": [0, .5, .5],
+    "turquoise": [.1, .6, .7],
+    "sky": [.4, .63, 1],
+    "azure": [0, .5, .1],
+    "ochre": [.8, .467, .135],
+    "taupe": [.282, .235, .196],
+    "umber": [.388, .318, .278],
+    "coffee": [.31, .235, .06],
+    "cornflower": [.392, .584, .929],
+    "periwinkle": [.8, .8, 1],
+    "olive": [.5, .5, 0],
+    "violet": [.4, 0, .45],
+    "purple": [.3, 0, .3],
+    "grapefruit": [1, .35, .35]
+  };
+
+  var filters = {
     "breeze": function(rgb) {
       lighten(rgb, .6);
       rgb.b += .06;
@@ -276,37 +241,6 @@
       rgb.b += .45;
       rgb.r *= .1;
     },
-    "taupe": function(rgb) {
-      lean(rgb, .282, .235, .196);
-    },
-    "umber": function(rgb) {
-      lean(rgb, .388, .318, .278);
-    },
-    "coffee": function(rgb) {
-      lean(rgb, .31, .235, .06);
-    },
-    "sky": function(rgb) {
-      ib(rgb);
-      lean(rgb, .4, .63, 1);
-    },
-    "cornflower": function(rgb) {
-      ib(rgb);
-      lean(rgb, .392, .584, .929);
-    },
-    "periwinkle": function(rgb) {
-      ib(rgb);
-      lean(rgb, .8, .8, 1);
-    },
-    "reddish": function(rgb) {
-      lean(rgb, .5, 0, 0);
-    },
-    "yellowish": function(rgb) {
-      lean(rgb, .7, .7, 0);
-    },
-    "olive": function(rgb) {
-      ig(rgb);
-      lean(rgb, .5, .5, 0);
-    },
     "royal": function(rgb) {
       sat(rgb, 1);
       lighten(rgb, .2);
@@ -317,60 +251,9 @@
       }
       darken(rgb, .3);
     },
-    "greenish": function(rgb) {
-      lean(rgb, 0, .5, 0);
-    },
-    "bluish": function(rgb) {
-      lean(rgb, 0, 0, .5);
-    },
-    "violet": function(rgb) {
-      lean(rgb, .4, 0, .45);
-    },
-    "purple": function(rgb) {
-      lean(rgb, .3, 0, .3);
-    },
-    "burgundy": function(rgb) {
-      lean(rgb, .5647, 0, .1254);
-    },
-    "orange": function(rgb) {
-      lean(rgb, 1, .55, 0);
-    },
-    "ochre": function(rgb) {
-      lean(rgb, .8, .467, .135);
-    },
-    "grape": function(rgb) {
-      lean(rgb, .45, .15, .3);
-    },
-    "blueberry": function(rgb) {
-      lean(rgb, .2, .22, .45);
-    },
-    "cerulean": function(rgb) {
-      lean(rgb, 0, .25, 1);
-    },
-    "pink": function(rgb) {
-      lean(rgb, 1, .6, .6);
-    },
-    "brown": function(rgb) {
-      lean(rgb, .4, .3, .1);
-    },
-    "blonde": function(rgb) {
-      lean(rgb, .98, .94, .72);
-    },
-    "blond": function(rgb) {
-      lean(rgb, .98, .94, .75);
-    },
-    "brick": function(rgb) {
-      lean(rgb, .75, .2, .1);
-    },
-    "rust": function(rgb) {
-      lean(rgb, .7, .4, .1);
-    },
     "rusty": function(rgb) {
       darken(rgb, .7);
       lean(rgb, .7, .4, .1);
-    },
-    "grapefruit": function(rgb) {
-      lean(rgb, 1, .35, .35);
     },
     "amaranth": function(rgb) {
       desat(rgb, .1);
@@ -412,9 +295,6 @@
     "dark": function(rgb) {
       darken(rgb, .5);
     },
-    "sepia": function(rgb) {
-      lean(rgb, 1, .9, .5);
-    },
     "vintage": function(rgb) {
       desat(rgb, .75);
       rgb.b *= .5;
@@ -436,10 +316,6 @@
       rgb.r *= 1.1;
       rgb.g *= 1.2;
       desat(rgb, .7);
-    },
-    "gold": function(rgb) {
-      desat(rgb, .4);
-      lean(rgb, 1, .9, 0);
     },
     "golden": function(rgb) {
       desat(rgb, .6);
@@ -900,14 +776,22 @@
       }
 
       var color = new RGB(0, 0, 0);
+      var n = 0;
       var parts = colorName.toLowerCase().split(/[^\w]/);
-      var func = undefined;
+      var component = undefined;
       for(var i = parts.length - 1; i >= 0; i--)
       {
-        func = funcs[parts[i]];
-        if (func)
+        if (component = bases[parts[i]])
         {
-          func(color);
+          color.r = (color.r * n + (component[0])) / (n + 1);
+          color.g = (color.g * n + (component[1])) / (n + 1);
+          color.b = (color.b * n + (component[2])) / (n + 1);
+          n++;
+        }
+        else if (component = filters[parts[i]])
+        {
+          component(color);
+          n++;
         }
       }
       color.normalize();
