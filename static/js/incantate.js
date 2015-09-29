@@ -222,6 +222,10 @@
       rgb.b *= .5;
       lean(rgb, 0, 0, .6);
     },
+    "indigo": function(rgb) {
+      rgb.b *= .5;
+      lean(rgb, .295, 0, .51);
+    },
     "lilac": function(rgb) {
       lean(rgb, .785, .636, .785);
     },
@@ -788,6 +792,23 @@
       rgb.g += .1;
       rgb.b += .05;
     },
+    "fire": function(rgb) {
+      rgb.r += .55;
+      rgb.g += .3;
+      sat(rgb, .65);
+    },
+    "spicy": function(rgb) {
+      darken(rgb, .3);
+      rgb.r += .35;
+      rgb.g += .2;
+      rgb.b += .05;
+    },
+    "spice": function(rgb) {
+      darken(rgb, .65);
+      rgb.r += .25;
+      rgb.g += .2;
+      rgb.b += .05;
+    },
     "bloody": function(rgb) {
       desat(rgb, .1);
       rgb.g *= .65;
@@ -804,6 +825,24 @@
       lighten(rgb, .4);
       rgb.r += .2;
     },
+    "dick": function(rgb) {
+      desat(rgb, .2);
+      rgb.r += .25;
+      rgb.b *= .65;
+      rgb.g *= .65;
+      sat(rgb, .2);
+      lighten(rgb, .4);
+      rgb.r += .2;
+    },
+    "cock": function(rgb) {
+      desat(rgb, .2);
+      rgb.r += .29;
+      rgb.b *= .85;
+      rgb.g *= .65;
+      sat(rgb, .2);
+      lighten(rgb, .4);
+      rgb.r += .2;
+    },
     "anus": function(rgb) {
       desat(rgb, .2);
       rgb.r += .18;
@@ -811,6 +850,15 @@
       rgb.g *= .635;
       sat(rgb, .23);
       lighten(rgb, .45);
+      rgb.r += .15;
+    },
+    "asshole": function(rgb) {
+      desat(rgb, .2);
+      rgb.r += .18;
+      rgb.b *= .22;
+      rgb.g *= .635;
+      sat(rgb, .23);
+      lighten(rgb, .35);
       rgb.r += .15;
     },
     "dream": function(rgb) {
