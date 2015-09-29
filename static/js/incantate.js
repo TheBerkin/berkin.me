@@ -387,6 +387,22 @@
       desat(rgb, .15);
       lighten(rgb, .18);
     },
+    "friend": function(rgb) {
+      rgb.r += .72;
+      rgb.g += .45;
+      rgb.b += .2;
+      rgb.r *= 1.5;
+      desat(rgb, .15);
+      lighten(rgb, .18);
+    },
+    "buddy": function(rgb) {
+      rgb.r += .72;
+      rgb.g += .45;
+      rgb.b += .25;
+      rgb.r *= 1.5;
+      desat(rgb, .15);
+      lighten(rgb, .20);
+    },
     "guy": function(rgb) {
       rgb.r += .69;
       rgb.g += .42;
