@@ -166,6 +166,9 @@
     "crimson": function(rgb) {
       lean(rgb, .863, .079, .236);
     },
+    "maroon": function(rgb) {
+      lean(rgb, .502, 0, 0);
+    },
     "vermillion": function(rgb) {
       lean(rgb, .890, .259, .204);
     },
@@ -187,6 +190,12 @@
     },
     "khaki": function(rgb) {
       lean(rgb, .76, .69, .57);
+    },
+    "cream": function(rgb) {
+      lean(rgb, .961, .961, .8);
+    },
+    "peach": function(rgb) {
+      lean(rgb, 1, .899, .706);
     },
     "amber": function(rgb) {
       lean(rgb, 1, .75, 0);
@@ -212,6 +221,9 @@
     "navy": function(rgb) {
       rgb.b *= .5;
       lean(rgb, 0, 0, .6);
+    },
+    "lilac": function(rgb) {
+      lean(rgb, .785, .636, .785);
     },
     "magenta": function(rgb) {
       lean(rgb, 1, 0, 1);
