@@ -43,7 +43,7 @@
     return (this.r * 1.3 + this.g * 1.8 + this.b * .3) / 3 > .5;
   };
 
-  var lean = function(color, rr, gg, bb) {    
+  var lean = function(color, rr, gg, bb) {
     if (color.r > 0)
     {
       color.r = (color.r + color.r + rr) / 2.0;
@@ -738,6 +738,15 @@
       rgb.b *= .62;
       rgb.g *= .635;
       sat(rgb, .23);
+      lighten(rgb, .45);
+      rgb.r += .15;
+    },
+    "nipple": function(rgb) {
+      desat(rgb, .2);
+      rgb.r += .24;
+      rgb.b *= .58;
+      rgb.g *= .63;
+      sat(rgb, .26);
       lighten(rgb, .45);
       rgb.r += .15;
     },
