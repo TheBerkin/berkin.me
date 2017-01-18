@@ -1,2 +1,0 @@
-# A/An automation using \a
-\a <noun>, \a <noun> and \a <noun>

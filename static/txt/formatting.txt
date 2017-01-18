@@ -1,0 +1,3 @@
+[case:sentence]
+[numfmt:group-commas]
+my name is <name>. i'm [n:2;10k] years old. i'm \a artist.

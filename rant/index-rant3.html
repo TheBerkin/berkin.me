@@ -1,0 +1,163 @@
+<html>
+	<head> 
+		<meta property="og:title" content="Rant - Powerful, Dynamic Text Generation" />
+		<meta property="og:type" content="website" />
+		<meta property="og:description" content="Rant is a powerful language and toolset for procedurally generating text, written in C#. It supports a wide range of functions and behaviors such as branching, synchronization, dictionary queries, and automatic formatting." />
+		<meta property="og:url" content="http://berkin.me/rant" />
+		<meta property="og:image" content="http://berkin.me/static/img/rant-logo-wordhead.png" />
+		<title>Rant - Powerful, Dynamic Text Generation</title>
+        
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="/static/css/common.css" />
+        <link rel="stylesheet" type="text/css" href="/static/css/rant.css" />
+        <link rel="stylesheet" type="text/css" href="/static/css/prism.css" />
+
+        <link rel="icon" type="image/png" href="/favicon.png" />
+        <script src="/static/js/jquery.js"></script>
+	</head>
+	<body>
+		<div id="page" class="nohpad">
+		<div class="centerpiece">
+				<div style="display: flex; flex-direction: row; align-items: center; margin-left: 20%">
+						<img src="/static/img/rant3logo.png" class="mini"/>
+						<div style="width: 100%; margin-left: 5em; text-align: left;">
+								<div>
+									<h2>A language for <span id="genpurpose" style="color: #ffa">game dialogue</span>.</h2>											
+								</div>
+								<div style="text-align:left">
+									<div class="button">Download</div>
+								</div>
+						</div>
+				</div>
+
+				<div class="vspaced spacious-links">
+				<a href="http://github.com/TheBerkin/Rant" title="Fork me!"><i class="fa fa-github"></i> Rant on GitHub</a>
+						<a href="http://berkin.me/rantdocs" title="I do, in fact, document my projects."><i class="fa fa-file-text"></i> Documentation</a>
+				<a href="https://marketplace.visualstudio.com/items/TheBerkin.language-rant" title="Write Rant with ease in Microsoft's sick new text editor."><i class="fa fa-plug"></i> VSCode Extension</a>
+				<a href="http://paypal.me/nicholasfleck" title="Has Rant made your day? Show your thanks by sending a few bucks my way!"><i class="fa fa-heart"></i> Donate</a>
+				</div>
+		</div>
+		<h1>Introducing Rant.</h1>
+		<div>
+		  <p>
+				<b>Rant</b> is an all-purpose procedural text generation engine and language.
+				It has been refined to include a dizzying array of features designed to handle everything from
+				the most rudimentary of string generation tasks to advanced dialogue generation, code templating, automatic formatting, and quite a lot more.
+		  </p>
+		  <p>
+				The goal of the project is to enable creators, especially those in game development, 
+				to automate repetitive writing tasks with a high degree of creative freedom.
+				With Rant, you can augment your creativity with the boundless potential of procedural generation.
+				And it doesn't cost you a thing.
+		  </p>
+		  <p>
+				Don't just write &ndash; write with Rant.
+		  </p>
+		</div>
+
+		<h1>What we have to offer</h1>
+
+		<div>
+			<div class="grid">
+				<div>
+					<div>
+						<h3><i class="fa fa-code"></i> Friendly API</h3>
+						<p>Rant's API is so easy to use, you just might shed tears of joy.</p>
+						<code class="block language-csharp" data-src="/static/txt/api-example.cs"></code>
+					</div>
+				</div>
+				<div>
+					<div>
+						<h3><i class="fa fa-arrows-alt"></i> Blocks</h3>
+							<p>Blocks provide Rant with branching choices. It can pick randomly, or you can customize it to choose in a number of different ways.</p>
+							<code class="block language-rant" data-src="/static/txt/branching.txt"></code>
+							<code class="block">Thursday</code>
+					</div>
+						<div>
+						<h3><i class="fa fa-paragraph"></i> Automatic formatting</h3>
+							<p>
+							  	Rant has a powerful set of functions to automate several kinds of formatting,
+								including capitalization, indefinite articles, serial commas (regular or Oxford), numbers, and more.
+							</p>
+							<code class="block language-rant" data-src="/static/txt/formatting.txt"></code>
+							<code class="block">My name is Stan. I'm 1,024 years old. I'm an artist.</code>
+					</div>
+				</div>
+				<div>
+					<div>
+						<h3><i class="fa fa-book"></i> Dictionary queries</h3>
+						<p>You can load your own dictionaries and query them for a specific type of word.</p>
+						<code class="block language-rant" data-src="/static/txt/queries.txt"></code>
+						<code class="block">Republicans are red, Democrats are blue...</code>
+					</div>
+					<div>
+						<h3><i class="fa fa-repeat"></i> Repeaters</h3>
+						<p>Any block can be looped over, making a variety of complex and interesting behaviors easy to implement.</p>
+						<code class="block language-rant" data-src="/static/txt/joke.txt"></code>
+						<code class="block">An earwig, a lawyer, and a gorilla walked into a bar...</code>
+					</div>										
+				</div>
+				<div>
+					<div>
+						<h3><i class="fa fa-file-code-o"></i> Scripting</h3>
+						<p>Rant includes Richard, a fully-functional embedded scripting language to allow even finer control of pattern behavior.</p>
+						
+					</div>
+					<div>
+						<h3><i class="fa fa-clone"></i> Multiple outputs</h3>
+						<p>You're not restricted to just returning a single output! You can return multiple outputs using channels, and even multiple channel sets using the serial pattern mode.</p>
+						<code class="block language-rant" data-src="/static/txt/channels.txt"></code>
+					</div>
+				</div>
+			</div>
+			<h2>So many features</h2>
+			<ul>
+				<li>Recursive, weighted branching with several available selection modes</li>
+				<li>Supports queryable dictionaries.</li>
+				<li>Tools for automatic capitalization, rhyming, pluralization, and English a/an (indefinite article) inference</li>
+				<li>Return multiple outputs at once</li>
+				<li>Probability modifiers</li>
+				<li>Loops, conditional statements, and subroutines</li>
+				<li>Emoji support</li>
+				<li>Import/Export resources easily with the .rantpkg format</li>	
+				<li>Number verbalization</li>
+				<li>Regex-based text replacement</li>
+				<li>Unity3D-compatible!</li>
+			</ul>
+		</div>
+			
+		<h1>NuGet</h1>
+		<div>
+			<p>Rant has a NuGet package that is updated after every commit. Type this into your package manager console to install the latest version:</p>
+			<code class="block nuget">PM&gt; Install-Package Rant</code>
+		</div>
+			
+		<script type="text/javascript">
+		(function() {
+			var purposes = ["dynamic game dialogue", "stories", "character names", 
+							"placeholder text", "dummy data", "random words", 
+							"ASCII art", "quest generation", "templating",
+							"procedural text", "hilarious entertainment",
+							"creative writing", "NaNoGenMo", "naming your first-born child",
+							"writing boring college papers", "writing the perfect resumé", "high-quality fanfiction",
+							"inventing new slang words", "writing the next hit song"];
+			var e = $("#genpurpose");
+			var lastIndex = 0;
+			setInterval(function() {
+				e.fadeOut(300, function() {
+					var index = Math.floor(Math.random() * purposes.length);
+					if (index == lastIndex) {
+						index = (index + 1) % purposes.length;
+					}
+					e.text(purposes[index]);
+					lastIndex = index;
+				}).fadeIn(300);
+			}, 2000);
+		})();
+		</script>
+		<script type="text/javascript" src="/static/js/src.js"></script>
+		<script type="text/javascript" src="/static/js/prism.js"></script>
+		<script type="text/javascript" src="/static/js/prism-rant-keywords.js"></script>
+		<script type="text/javascript" src="/static/js/prism-rant.js"></script>
+	</body>
+</html>

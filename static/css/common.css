@@ -42,7 +42,7 @@
 body
 {
   background-color: #d6d6d6;
-  font: 16px "Source Sans Pro", "Segoe UI", Arial, sans-serif;
+  font: 14px "Source Sans Pro", "Segoe UI", Arial, sans-serif;
   font-size: 16px;
   padding: 0;
   margin: 0;
@@ -72,6 +72,13 @@ h2
   color: #444;
 }
 
+h3
+{
+	margin-top: .2em;
+	margin-bottom: .2em;
+	font-size: 1.8em;
+}
+
 h3, h4, h5
 {
   color: #333;
@@ -79,7 +86,7 @@ h3, h4, h5
 
 p, ul
 {
-  font-size: 1.2em;
+  font-size: 1.1em;
 }
 
 a
@@ -155,4 +162,24 @@ div.centered
 {
   position: absolute;
   top: 0;
+}
+
+img.small
+{
+  zoom: 80%;
+}
+
+img.smaller
+{
+  zoom: 50%;
+}
+
+img.mini
+{
+  zoom: 33%;
+}
+
+.padsmall
+{
+  padding: 4em;
 }

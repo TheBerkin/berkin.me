@@ -5,6 +5,7 @@ h1
 
 code
 {
+	font-size: 14px;
   padding: 3px;
   border-radius: 3px;
   background-color: #eee;
@@ -54,28 +55,23 @@ h1 + div > *
 {
   text-align: center;
   width: 100%;
-  background-color: #424;
+  background-color: #442244;
   margin: 0;
-  padding: 32px;
+  padding-top: 2em;
+  padding-bottom: 4px;
   margin-bottom: 24px;
   box-sizing: border-box;
 }
 
 .centerpiece *
 {
-  color: white;
-}
-
-.smaller
-{
-  zoom: 80%;
-  margin: 16px;
+  color: #fff;
 }
 
 .vspaced
 {
-  margin-top: 12px;
-  margin-bottom: 12px;
+  margin-top: 1.2em;
+  margin-bottom: 1.2em;
 }
 
 .button
@@ -85,14 +81,24 @@ h1 + div > *
   justify-content: center;
   align-items: center;
   border-radius: 3px;
-  padding: 10px 15px;
+  padding: 6px 12px;
   margin: 4px 8px;
   color: #fff;
   border: 1px solid #fff;
-  background-color: #424;
-  font-size: 1.4em;
-  font-weight: 300;
+  background-color: inherit;
+  font-size: 1.3em;
+  font-weight: 500;
   transition: background-color ease 0.2s, color ease 0.2s;
+}
+
+.button:first-of-type
+{
+		margin-left: 0;
+}
+
+.button:last-of-type
+{
+		margin-right: 0;
 }
 
 .button:hover
@@ -101,15 +107,45 @@ h1 + div > *
   background-color: #fff;
 }
 
-.donatebtn + div
+.spacious-links a
 {
-  overflow: hidden;
-  height: 0;
-  transition: height ease 0.2s, margin-top ease 0.2s;
+    margin-left: 16px;
+    margin-right: 16px;
+    font-weight: bold;
+		transition: color .4s ease;
 }
 
-.donatebtn:hover + div
+.spacious-links a:hover
 {
-  margin-top: 24px;
-  height: 1.5em;
+		color: #ffc;
+}
+
+.grid
+{
+		margin: 4px;
+		display: block;
+}
+
+.grid > div
+{
+		display: flex;
+		flex-direction: row;
+		flex-wrap: nowrap;
+}
+
+.grid > div > div
+{		
+		width: 0;
+		flex-grow: 1;
+		margin: 4px;
+		padding: 1em;
+		border: 1px solid #ccc;
+		border-radius: 3px;
+		background-color: #eee;
+}
+
+.fa
+{
+	margin-left: 6px;
+	margin-right: 6px;
 }
