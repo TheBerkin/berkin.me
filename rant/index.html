@@ -1,181 +1,163 @@
-<!DOCTYPE html>
 <html>
-  <head>
-    <title>Rant - Powerful, Dynamic Text Generationo</title>
+	<head> 
+		<meta property="og:title" content="Rant - Powerful, Dynamic Text Generation" />
+		<meta property="og:type" content="website" />
+		<meta property="og:description" content="Rant is a powerful language and toolset for procedurally generating text, written in C#. It supports a wide range of functions and behaviors such as branching, synchronization, dictionary queries, and automatic formatting." />
+		<meta property="og:url" content="http://berkin.me/rant" />
+		<meta property="og:image" content="http://berkin.me/static/img/rant-logo-wordhead.png" />
+		<title>Rant - Powerful, Dynamic Text Generation</title>
+        
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="/static/css/common.css" />
+        <link rel="stylesheet" type="text/css" href="/static/css/rant.css" />
+        <link rel="stylesheet" type="text/css" href="/static/css/prism.css" />
 
-    <!-- Open Graph stuff -->
-    <meta property="og:title" content="Rant - Powerful, Dynamic Text Generation" />
-    <meta property="og:type" content="website" />
-    <meta property="og:description" content="Rant is a powerful language and toolset for procedurally generating text, written in C#. It supports a wide range of functions and behaviors such as branching, synchronization, dictionary queries, and automatic formatting." />
-    <meta property="og:url" content="http://berkin.me/rant" />
-    <meta property="og:image" content="http://berkin.me/static/img/rant-logo-wordhead.png" />
+        <link rel="icon" type="image/png" href="/favicon.png" />
+        <script src="/static/js/jquery.js"></script>
+	</head>
+	<body>
+		<div id="page" class="nohpad">
+		<div class="centerpiece">
+				<div style="display: flex; flex-direction: row; align-items: center; margin-left: 20%">
+						<img src="/static/img/rant3logo.png" class="mini"/>
+						<div style="width: 100%; margin-left: 5em; text-align: left;">
+								<div>
+									<h2>A language for <span id="genpurpose" style="color: #ffa">game dialogue</span>.</h2>											
+								</div>
+								<div style="text-align:left">
+									<div class="button">Download</div>
+								</div>
+						</div>
+				</div>
 
-    <!-- Stylesheets of questionable quality -->
-    <link rel="stylesheet" type="text/css" href="/static/css/common.css" />
-    <link rel="stylesheet" type="text/css" href="/static/css/rant.css" />
-    <link rel="stylesheet" type="text/css" href="/static/css/prism.css" />
+				<div class="vspaced spacious-links">
+				<a href="http://github.com/TheBerkin/Rant" title="Fork me!"><i class="fa fa-github"></i> Rant on GitHub</a>
+						<a href="http://berkin.me/rantdocs" title="I do, in fact, document my projects."><i class="fa fa-file-text"></i> Documentation</a>
+				<a href="https://marketplace.visualstudio.com/items/TheBerkin.language-rant" title="Write Rant with ease in Microsoft's sick new text editor."><i class="fa fa-plug"></i> VSCode Extension</a>
+				<a href="http://paypal.me/nicholasfleck" title="Has Rant made your day? Show your thanks by sending a few bucks my way!"><i class="fa fa-heart"></i> Donate</a>
+				</div>
+		</div>
+		<h1>Introducing Rant.</h1>
+		<div>
+		  <p>
+				<b>Rant</b> is an all-purpose procedural text generation engine and language.
+				It has been refined to include a dizzying array of features designed to handle everything from
+				the most rudimentary of string generation tasks to advanced dialogue generation, code templating, automatic formatting, and quite a lot more.
+		  </p>
+		  <p>
+				The goal of the project is to enable creators, especially those in game development, 
+				to automate repetitive writing tasks with a high degree of creative freedom.
+				With Rant, you can augment your creativity with the boundless potential of procedural generation.
+				And it doesn't cost you a thing.
+		  </p>
+		  <p>
+				Don't just write &ndash; write with Rant.
+		  </p>
+		</div>
 
-    <link rel="icon" type="image/png" href="/favicon.png" />
-    <script src="/static/js/jquery.js"></script>
-  </head>
+		<h1>What we have to offer</h1>
 
-  <body>
-    <div id="page" class="nohpad">
-      <div class="centerpiece">
-        <img class="smaller" src="/static/img/rant-logo-white.png"></img>
-        <h2>Procedural text generation has never been this easy.</h2>
-
-        <a class="button" href="https://ci.appveyor.com/project/TheBerkin/rant/build/artifacts">Download Rant</a>
-        <a class="button" href="https://github.com/TheBerkin/Rant">Source Code</a>
-        <a class="button" href="/rantdocs">Documentation</a>
-        <!-- Paypal's embed codes are like something out of a feverish nightmare -->
-        <form style="display: inline-block;" class="donatebtn" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-        <input type="hidden" name="cmd" value="_s-xclick">
-        <input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----
-        ">
-        <a class="button" onclick="this.parentNode.submit();">Donate</a>
-        </form>
-        <div>Show your support by sending a few bucks my way :)</div>
-      </div>
-
-      <div>
-        <h1>What is Rant?</h1>
-        <div>
-          <p>
-            Rant is a language for procedurally generating text, written in C#.
-            It combines a markup language with functional and imperative programming concepts to deliver a powerful,
-            but easy-to-use tool for adding rich variations to your text. The ultimate goal of Rant is to augment
-            your creativity with the boundless potential of randomness, helping you consider your next great
-            idea as not just a static concept, but a seed for countless possibilities.
-          </p>
-          <p>
-            <b>TL;DR:</b> It's basically the opposite of regex, but a lot cooler. You should totally try it.
-          </p>
-
-          <h2>Delightfully versatile</h2>
-          <p>
-            Create character names and randomized dialogue for your games,
-            generate the world's strangest novel, randomize your website's CSS, or simply roll some virtual dice.
-            The only limits are your imagination and your dignity.
-          </p>
-
-          <h2>Friendly API</h2>
-          <p>
-            Rant's API is so easy to use that it will bring tears of pure joy to your eyes.
-          </p>
-          <code class="block language-csharp" data-src="/static/txt/api_example.cs"></code>
-          <code class="block">The furrowed impatient beagle skips over the weedy Humboldt penguin.</code>
-        </div>
-
-        <h1>Features</h1>
-        <div>
-
-          <h2>Branching</h2>
-          <p>
-            Add branching choices with optional weighting.
-            Choose the selection strategy, or just leave it random.
-            It's up to you.
-          </p>
-          <code class="block language-rant" data-src="/static/txt/example1.txt"></code>
-          <code class="block">Tuesday</code>
-
-          <h2>Dictionary queries</h2>
-          <p>
-            You can load dictionaries into Rant and query them.
-            This enables you to provide a large vocabulary to your patterns.
-          </p>
-          <code class="block language-rant" data-src="/static/txt/example2.txt"></code>
-          <code class="block">Republicans are red, Democrats are blue</code>
-
-          <h2>Automatic formatting</h2>
-          <p>
-            Want the output converted to Title Case and all your numbers written in binary? Me neither, but you can do it if your heart so desires.
-          </p>
-          <p>
-            Rant provides many options for automatic capitalization, number formatting, indefinite article automation, and more.
-          </p>
-
-          <div class="vspaced">
-            <code class="block language-rant" data-src="/static/txt/example3-1.txt"></code>
-            <code class="block">THE NUMBERS, MASON! WHAT DO THEY MEAN?</code>
-          </div>
-          <div class="vspaced">
-            <code class="block language-rant" data-src="/static/txt/example3-2.txt"></code>
-            <code class="block">I, II, III, IV, V, VI, VII, VIII, IX, X</code>
-          </div>
-          <div class="vspaced">
-            <code class="block language-rant" data-src="/static/txt/example3-3.txt"></code>
-            <code class="block">a centipede, an orange and a reporter</code>
-          </div>
-
-          <h2>Repeaters</h2>
-          <p>
-            Repeaters are a feature of Rant that allow a designated subset of a pattern (called a block)
-            to be run a set number of times with defined behaviors called attributes. They're pretty nifty, especially for constructing lists.
-          </p>
-          <code class="block language-rant" data-src="/static/txt/example4.txt"></code>
-          <code class="block">An earwig, a frog, and a bass walked into a bar...</code>
-
-          <h2>And a spine-tingling abundance of other things...</h2>
-          <ul>
-            <li>Simple, user-friendly API</li>
-            <li><a href="http://github.com/RantLang/Rantionary">A massive standard dictionary</a></li>
-            <li>Unmanaged function exports for C/C++</li>
-            <li>Subroutines</li>
-            <li>Multiple outputs</li>
-            <li>Cross-pattern synchronization</li>
-            <li>Probability modifiers</li>
-            <li>Packages</li>
-            <li>Richard, an experimental embedded scripting language for fine-grained control of pattern behavior</li>
-            <li>Rhyming engine (pop music will never be the same)</li>
-            <li>Import patterns during runtime for easy library loading</li>
-            <li>Unity-compatible!</li>
-          </ul>
-        </div>
-
-        <h1>NuGet</h1>
-        <div>
-          <p>
-            Do you like NuGet? Of course you do. I do too, so I made Rant available in a convenient package.
-            To easily add Rant to your project, put the following into your Package Manager console:
-          </p>
-          <code class="block nuget">PM> Install-Package Rant</code>
-        </div>
-
-        <h1>Try Rant Online</h1>
-        <div>
-          <p>
-            For your convenience, I have created the <a href="sandbox">Rant Sandbox</a>, which lets you run Rant patterns
-            straight from your web browser. You can even save them for later and share them with your friends,
-            if you're into that sort of thing.
-          </p>
-        </div>
-
-        <h1>Feedback</h1>
-        <div>
-          <p>
-            I've spent almost two years working on Rant, and I'd be delighted to hear your thoughts on it!
-            Feel free to post on the <a href="https://github.com/TheBerkin/Rant/issues">issue tracker</a>,
-            <a href="http://twitter.com/TheBerkin">tweet at me</a>,
-            or email me at <i>nicholasfleck [at] gmail [dot] com</i>.
-          </p>
-        </div>
-
-        <h1>Support Rant</h1>
-        <div>
-          <p>
-            Building software takes a lot of time and effort, and I am giving you Rant for free because hey, free stuff <i>rocks</i>.
-            However, if Rant absolutely made your day, you can show your appreciation by <a href="#" onClick="$('.donatebtn').submit(); return true;">donating</a>.
-            Donating is completely optional, but it's there for those who wish to support my projects.
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Horror show of assorted scripts -->
-    <script type="text/javascript" src="/static/js/src.js"></script>
-    <script type="text/javascript" src="/static/js/prism.js"></script>
-    <script type="text/javascript" src="/static/js/prism-rant-keywords.js"></script>
-    <script type="text/javascript" src="/static/js/prism-rant.js"></script>
-  </body>
+		<div>
+			<div class="grid">
+				<div>
+					<div>
+						<h3><i class="fa fa-code"></i> Friendly API</h3>
+						<p>Rant's API is so easy to use, you just might shed tears of joy.</p>
+						<code class="block language-csharp" data-src="/static/txt/api-example.cs"></code>
+					</div>
+				</div>
+				<div>
+					<div>
+						<h3><i class="fa fa-arrows-alt"></i> Blocks</h3>
+							<p>Blocks provide Rant with branching choices. It can pick randomly, or you can customize it to choose in a number of different ways.</p>
+							<code class="block language-rant" data-src="/static/txt/branching.txt"></code>
+							<code class="block">Thursday</code>
+					</div>
+						<div>
+						<h3><i class="fa fa-paragraph"></i> Automatic formatting</h3>
+							<p>
+							  	Rant has a powerful set of functions to automate several kinds of formatting,
+								including capitalization, indefinite articles, serial commas (regular or Oxford), numbers, and more.
+							</p>
+							<code class="block language-rant" data-src="/static/txt/formatting.txt"></code>
+							<code class="block">My name is Stan. I'm 1,024 years old. I'm an artist.</code>
+					</div>
+				</div>
+				<div>
+					<div>
+						<h3><i class="fa fa-book"></i> Dictionary queries</h3>
+						<p>You can load your own dictionaries and query them for a specific type of word.</p>
+						<code class="block language-rant" data-src="/static/txt/queries.txt"></code>
+						<code class="block">Republicans are red, Democrats are blue...</code>
+					</div>
+					<div>
+						<h3><i class="fa fa-repeat"></i> Repeaters</h3>
+						<p>Any block can be looped over, making a variety of complex and interesting behaviors easy to implement.</p>
+						<code class="block language-rant" data-src="/static/txt/joke.txt"></code>
+						<code class="block">An earwig, a lawyer, and a gorilla walked into a bar...</code>
+					</div>										
+				</div>
+				<div>
+					<div>
+						<h3><i class="fa fa-file-code-o"></i> Scripting</h3>
+						<p>Rant includes Richard, a fully-functional embedded scripting language to allow even finer control of pattern behavior.</p>
+						
+					</div>
+					<div>
+						<h3><i class="fa fa-clone"></i> Multiple outputs</h3>
+						<p>You're not restricted to just returning a single output! You can return multiple outputs using channels, and even multiple channel sets using the serial pattern mode.</p>
+						<code class="block language-rant" data-src="/static/txt/channels.txt"></code>
+					</div>
+				</div>
+			</div>
+			<h2>So many features</h2>
+			<ul>
+				<li>Recursive, weighted branching with several available selection modes</li>
+				<li>Supports queryable dictionaries.</li>
+				<li>Tools for automatic capitalization, rhyming, pluralization, and English a/an (indefinite article) inference</li>
+				<li>Return multiple outputs at once</li>
+				<li>Probability modifiers</li>
+				<li>Loops, conditional statements, and subroutines</li>
+				<li>Emoji support</li>
+				<li>Import/Export resources easily with the .rantpkg format</li>	
+				<li>Number verbalization</li>
+				<li>Regex-based text replacement</li>
+				<li>Unity3D-compatible!</li>
+			</ul>
+		</div>
+			
+		<h1>NuGet</h1>
+		<div>
+			<p>Rant has a NuGet package that is updated after every commit. Type this into your package manager console to install the latest version:</p>
+			<code class="block nuget">PM&gt; Install-Package Rant</code>
+		</div>
+			
+		<script type="text/javascript">
+		(function() {
+			var purposes = ["dynamic game dialogue", "stories", "character names", 
+							"placeholder text", "dummy data", "random words", 
+							"ASCII art", "quest generation", "templating",
+							"procedural text", "hilarious entertainment",
+							"creative writing", "NaNoGenMo", "naming your first-born child",
+							"writing boring college papers", "writing the perfect resumé", "high-quality fanfiction",
+							"inventing new slang words", "writing the next hit song"];
+			var e = $("#genpurpose");
+			var lastIndex = 0;
+			setInterval(function() {
+				e.fadeOut(300, function() {
+					var index = Math.floor(Math.random() * purposes.length);
+					if (index == lastIndex) {
+						index = (index + 1) % purposes.length;
+					}
+					e.text(purposes[index]);
+					lastIndex = index;
+				}).fadeIn(300);
+			}, 2000);
+		})();
+		</script>
+		<script type="text/javascript" src="/static/js/src.js"></script>
+		<script type="text/javascript" src="/static/js/prism.js"></script>
+		<script type="text/javascript" src="/static/js/prism-rant-keywords.js"></script>
+		<script type="text/javascript" src="/static/js/prism-rant.js"></script>
+	</body>
 </html>
