@@ -31,10 +31,9 @@
 				</div>
 
 				<div class="vspaced spacious-links">
-				<a href="http://github.com/TheBerkin/Rant" title="Fork me!"><i class="fa fa-github"></i> Rant on GitHub</a>
-						<a href="http://berkin.me/rantdocs" title="I do, in fact, document my projects."><i class="fa fa-file-text"></i> Documentation</a>
-				<a href="https://marketplace.visualstudio.com/items/TheBerkin.language-rant" title="Write Rant with ease in Microsoft's sick new text editor."><i class="fa fa-plug"></i> VSCode Extension</a>
-				<a href="http://paypal.me/nicholasfleck" title="Has Rant made your day? Show your thanks by sending a few bucks my way!"><i class="fa fa-heart"></i> Donate</a>
+					<a href="http://github.com/TheBerkin/Rant" title="Fork me!"><i class="fa fa-github"></i> Rant on GitHub</a>
+					<a href="http://berkin.me/rantdocs" title="I do, in fact, document my projects."><i class="fa fa-file-text"></i> Documentation</a>				
+					<a href="http://paypal.me/nicholasfleck" title="Has Rant made your day? Show your thanks by sending a few bucks my way!"><i class="fa fa-heart"></i> Donate</a>
 				</div>
 		</div>
 		<h1>Introducing Rant.</h1>
@@ -100,7 +99,10 @@
 				<div>
 					<div>
 						<h3><i class="fa fa-file-code-o"></i> Scripting</h3>
-						<p>Rant includes Richard, a fully-functional embedded scripting language to allow even finer control of pattern behavior.</p>
+						<p>
+							Rant contains a fully-functional integrated scripting language for even more advanced control over pattern behavior.
+							It has the added bonus of being able to access external variables through Rant's API.
+						</p>
 						
 					</div>
 					<div>
@@ -135,12 +137,12 @@
 		<script type="text/javascript">
 		(function() {
 			var purposes = ["dynamic game dialogue", "stories", "character names", 
-							"placeholder text", "dummy data", "random words", 
+							"placeholder text", "dummy data", "random word generation", 
 							"ASCII art", "quest generation", "templating",
 							"procedural text", "hilarious entertainment",
 							"creative writing", "NaNoGenMo", "naming your first-born child",
 							"writing boring college papers", "writing the perfect resumé", "high-quality fanfiction",
-							"inventing new slang words", "writing the next hit song"];
+							"inventing new slang words", "writing the next hit song", "naming in-game items"];
 			var e = $("#genpurpose");
 			var lastIndex = 0;
 			setInterval(function() {
