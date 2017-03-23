@@ -1,0 +1,10 @@
+# Fibonacci sequence!
+[vn:a;0]
+[vn:b;0]
+[rs:50;\n]
+{
+    [v:a]
+    [vcpy:a;t]
+    [vcpy:b;a]
+    [vadd:b;[v:t]]
+}
