@@ -25,15 +25,15 @@
 									<h2>A language for <span id="genpurpose" style="color: #ffa">game dialogue.</span></h2>											
 								</div>
 								<div style="text-align:left">
-									<a class="button" href="https://ci.appveyor.com/api/projects/TheBerkin/Rant/artifacts/bin/Rant.zip?branch=dev-3.0">Download</a>
+									<a class="button" href="https://ci.appveyor.com/api/projects/TheBerkin/Rant/artifacts/bin/Rant.zip?branch=master">Download</a>
 								</div>
 						</div>
 				</div>
 
 				<div class="vspaced spacious-links">
 					<a href="http://github.com/TheBerkin/Rant" title="Fork me!"><i class="fa fa-github"></i> Rant on GitHub</a>
-					<a href="http://berkin.me/rantdocs" title="I do, in fact, document my projects."><i class="fa fa-file-text"></i> Documentation</a>				
-					<a href="http://paypal.me/nicholasfleck" title="Has Rant made your day? Show your thanks by sending a few bucks my way!"><i class="fa fa-heart"></i> Donate</a>
+					<a href="http://berkin.me/rantdocs" title="Learn Rant from my delicious documentation."><i class="fa fa-file-text"></i> Documentation</a>				
+					<a href="https://patreon.com/Berkin" title="Support Rant development on Patreon!"><i class="fa fa-heart"></i> Donate</a>
 				</div>
 		</div>
 		<h1>Introducing Rant.</h1>
@@ -75,7 +75,7 @@
 						<div>
 						<h3><i class="fa fa-paragraph"></i> Automatic formatting</h3>
 							<p>
-							  	Rant has a powerful set of functions to automate several kinds of formatting,
+							  	Rant has a robust and powerful set of functions for automating several kinds of formatting,
 								including capitalization, indefinite articles, serial commas (regular or Oxford), numbers, and more.
 							</p>
 							<code class="block language-rant" data-src="/static/txt/formatting.txt"></code>
@@ -84,7 +84,7 @@
 				</div>
 				<div>
 					<div>
-						<h3><i class="fa fa-book"></i> Dictionary queries</h3>
+						<h3><i class="fa fa-book"></i> Queries</h3>
 						<p>You can load your own dictionaries and query them for a specific type of word.</p>
 						<code class="block language-rant" data-src="/static/txt/queries.txt"></code>
 						<code class="block">Republicans are red, Democrats are blue...</code>
@@ -98,12 +98,12 @@
 				</div>
 				<div>
 					<div>
-						<h3><i class="fa fa-file-code-o"></i> Scripting</h3>
+						<h3><i class="fa fa-file-code-o"></i> Object model</h3>
 						<p>
-							Rant contains a fully-functional integrated scripting language for even more advanced control over pattern behavior.
-							It has the added bonus of being able to access external variables through Rant's API.
-						</p>
-						
+							Rant has an integrated object model capable of creating scoped variables, for even more advanced control over pattern behavior.
+							It has all the standard functions for basic arithmetic, boolean logic, and conditional statements.
+							Global objects created by patterns can be accessed from user code via the Rant API so that external data can be used in patterns.
+						</p>						
 					</div>
 					<div>
 						<h3><i class="fa fa-clone"></i> Multiple outputs</h3>
@@ -141,7 +141,7 @@
 							"ASCII art.", "quest generation.", "templating.",
 							"procedural text.", "hilarious entertainment.",
 							"creative writing.", "NaNoGenMo.", "naming your first-born child.",
-							"writing boring college papers.", "writing the perfect resumé.", "high-quality fanfiction.",
+							"writing boring college papers.", "writing a \"resumé\".", "high-quality fanfiction.",
 							"inventing new slang words.", "writing the next hit song.", "naming in-game items.",
 							"conlang lexicon generation.", "poetry?!", "inventing new insults."];
 			var e = $("#genpurpose");
