@@ -113,8 +113,8 @@ h1 + .module
 
 #logo
 {
-  max-width: 2.5in;
-  max-height: 2.5in;
+  max-width: 16rem;
+  max-height: 16rem;
   user-drag: none; 
   user-select: none;
   -moz-user-select: none;
