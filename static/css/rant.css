@@ -191,6 +191,7 @@ h1 + .module
   {
     font-size: 18pt;
     margin: 0.25em 0;
+    padding: 1em;
   }
 
   #container
@@ -220,6 +221,6 @@ h1 + .module
 
   .feature > h3 > i
   {
-    margin-right: .8em;  
+    margin-right: 1em;  
   }
 }
