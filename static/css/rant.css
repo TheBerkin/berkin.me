@@ -113,8 +113,9 @@ h1 + .module
 
 #logo
 {
-  max-width: 16rem;
-  max-height: 16rem;
+  display: block;
+  width: 12rem;
+  height: auto;
   user-drag: none; 
   user-select: none;
   -moz-user-select: none;
@@ -222,5 +223,11 @@ h1 + .module
   .feature > h3 > i
   {
     margin-right: 1em;  
+  }
+
+  #logo
+  {
+    width: 18rem;
+    height: auto;
   }
 }
