@@ -16,7 +16,6 @@
         <link rel="stylesheet" type="text/css" href="/static/css/prism.css" />
 
         <link rel="icon" type="image/png" href="/favicon.png" />
-        <script src="/static/js/jquery.js"></script>
     </head>
     <body>
         <div id="container">
@@ -25,16 +24,18 @@
             </div>
             <h1>Text generation for everything.</h1>
             <div class="module" id="description">
-                <b>Rant</b> is an all-purpose procedural text generation language developed for .NET.
+                <b>Rant</b> is a free, all-purpose procedural text generation language developed for .NET.
                 It has been refined over several years of development to include a dizzying array of features designed 
                 to handle everything from the most rudimentary of string generation tasks to dynamic game dialogue
                 generation, code templating, automatic formatting, poetry, and much more.               
             </div>
             <div class="btnbox">
-                    <a class="button" href="https://ci.appveyor.com/api/projects/TheBerkin/Rant/artifacts/bin/Rant.zip?branch=master">Download Rant 3</a>
                     <a class="button" href="https://github.com/TheBerkin/Rant" target="_blank">GitHub Project</a>
+                    <a class="main button" href="https://ci.appveyor.com/api/projects/TheBerkin/Rant/artifacts/bin/Rant.zip?branch=master">Download Rant 3</a>
+                    <a class="button" href="/rantdocs" target="_blank">Documentation</a>
             </div>
             <div class="separator"></div>
+
             <h1 class="no-bottom-margin">So many features</h1>
             <div class="module rows">
                 <div class="feature">
@@ -83,6 +84,34 @@
                     Rant has all the standard functions for basic arithmetic, boolean logic, and conditional statements.
                     Global variables can also be manipulated via the Rant API.
                 </div>
+            </div>
+            <h1 class="no-bottom-margin">Get started</h1>
+            <div class="module">
+                <h2>NuGet</h2>
+                Rant has a NuGet package for easy installation. Just type this command into your package manager console:
+                <div class="nuget">
+                    PM&gt; Install-Package Rant
+                </div>
+                <h2>Learn Rant</h2>
+                Browse the <a href="./rantdocs">documentation</a> and familiarize yourself with all aspects of Rant.
+                Engross yourself in every detail of every function, langauge feature, and construct available in the library.
+                <h2>Help us improve</h2>
+                If you find a bug or would like to request a feature, you may do so on the 
+                <a href="https://github.com/TheBerkin/Rant/issues">issues</a> page.
+            </div>
+
+            <h1 class="no-bottom-margin">Support me!</h1>
+            <div class="module">
+                <div class="btnbox">
+                    <a noline href="https://patreon.com/Berkin"><img class="patreon" src="/static/img/patreonlogowhite.png" /></a>
+                </div>
+                If you have found Rant useful for your projects, please consider supporting me on <a href="https://patreon.com/Berkin">Patreon</a>.
+                Your support enables me to spend more time and resources on making projects like Rant even better. Any amount is appreciated!
+            </div>
+            
+            <div id="footer">
+                &copy; 2017 Nicholas Fleck &mdash; Rant is licensed under the <a href="https://github.com/TheBerkin/Rant/blob/master/LICENSE">MIT License</a>
+                because free software is delicious.
             </div>
         </div>
     </body>
