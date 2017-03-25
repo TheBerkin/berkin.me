@@ -1,6 +1,6 @@
 body *
 {
-  color: #fcfcfc;
+  color: white;
   font-weight: 100;
 }
 
@@ -32,23 +32,27 @@ hr
 h1, h2, h3, h4, h5, h6
 {
   font-weight: 400;
+  color: white;
 }
 
 h1
 {
   font-size: 2em;
+  text-shadow: 1px 1px 10px #222;
 }
 
 h2
 {
   margin: 0.5em 0;
   font-size: 1.5em;
+  text-shadow: 1px 1px 8px #222;
 }
 
 h3
 {
   margin: 0.25em 0;
   font-size: 1.25em;
+  text-shadow: 1px 1px 5px #262626;
 }
 
 h4
