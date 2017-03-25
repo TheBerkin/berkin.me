@@ -17,7 +17,7 @@ body
   height: 100%;
 }
 
-a:not([noline])
+a:not([noline]):not(.button)
 {
   border-bottom: 1px dotted white;
 }
