@@ -198,7 +198,7 @@
     "o": [.9, .32, -9, 1],
     "p": [.98, .03, 0.07, 1],
     "q": [-.5, 0, 0, 1.5],
-    "r": [2, 0, -1, -1.2],
+    "r": [2, 0, -1, 1.2],
     "s": [2, 3, 5, 0.3],
     "t": [0, 0, .1, 0.6],
     "u": [1, 1, .5, 1],
@@ -297,7 +297,21 @@
     "ass": "dda277",
     "why": [-0.2, .3, .2],
     "sunset": "d65519",
-    "licorice": "0b0611"
+    "licorice": "0b0611",
+    "espresso": "23170c",
+    "taco": "eac035",
+    "burrito": "f2e093",
+    "meth": "f4f7f7",
+    "lavender": "a370ad",
+    "taint": "ba997a",
+    "sea-floor": "4d8e74",
+    "celery": "74bf2a",
+    "space": "242535",
+    "passion": "c60519",
+    "love": "b72840",
+    "heartbreak": "843341",
+    "lust": "f46235",
+    "pruple": "b531c4"
   };
 
   var filters = {
@@ -515,6 +529,14 @@
       rgb.r *= 1.7;
       desat(rgb, .12);
       lighten(rgb, .18);
+    },
+    "woman": function(rgb) {
+      rgb.r += .7;
+      rgb.g += .3;
+      rgb.b += .12;
+      rgb.r *= 1.4;
+      desat(rgb, .03);
+      lighten(rgb, .22);
     },
     "true": function(rgb) {
       var m = (rgb.r * 1.4 + rgb.g * 1.8 + rgb.b * .4) / 3;
@@ -942,6 +964,38 @@
       lighten(rgb, 0.25);
       rgb.r += 0.05;
       rgb.g += 0.065;
+    },
+    "fucking": function(rgb) {
+      rgb.r += 0.15;
+      rgb.g *= rgb.r;
+      lighten(rgb, 0.1);
+      sat(rgb, 0.1);
+      rgb.b -= 0.1;
+      rgb.b *= rgb.r;
+      lean(rgb, 0.2, 0.1, 0);
+      lighten(rgb, 0.2);
+      sat(rgb, 0.3);
+    },
+    "juicy": function(rgb) {
+      sat(rgb, 0.2);
+      rgb.r *= 1.2;
+      rgb.g *= 1.1;
+      rgb.g += (rgb.r + rgb.g) * 0.5 - 0.45;
+      rgb.b += rgb.r * 0.1 + 0.1;      
+      yellowize(rgb, 0.5);
+      darken(rgb, 0.37);
+    },
+    "fresh": function(rgb) {
+      lighten(rgb, 0.11);
+      sat(rgb, 0.1);
+    },
+    "brotherly": function(rgb) {
+      darken(rgb, .1);
+      rgb.r *= 1.4;
+      rgb.g *= 1.2;
+      sat(rgb, .1);
+      rgb.b *= rgb.g;
+      darken(rgb, .2);
     }
   };
   Incantate = {
@@ -957,6 +1011,7 @@
       var component = undefined;
       for(var i = parts.length - 1; i >= 0; i--)
       {
+        if (parts[i].length === 0) continue;
         if (component = bases[parts[i]])
         {
           // Convert hex codes
