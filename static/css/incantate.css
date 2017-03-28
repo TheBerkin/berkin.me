@@ -55,13 +55,13 @@
   border: 1px solid #999;
   margin: 24px;
   padding: 20px;
-  transition: background-color 0.5s ease;
+  transition: background-color .75s ease;
 }
 
 .colorhex
 {
   margin-left: auto;
-  transition: color 0.5s ease;
+  transition: color .75s ease;
   font-size: 1.2em;
 }
 

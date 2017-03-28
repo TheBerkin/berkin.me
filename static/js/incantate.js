@@ -149,12 +149,87 @@
     rgb.b = 1 - rgb.b;
   }
 
+  var yellowize = function(rgb, amount) {
+    rgb.g += amount;
+    rgb.r += amount;
+  }
+
+  var hexToRgb = function(hex) {
+    var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+    return result ? [
+        parseInt(result[1], 16) / 255,
+        parseInt(result[2], 16) / 255,
+        parseInt(result[3], 16) / 255
+    ] : null;
+  }
+
+  var guess = function(str)
+  {
+    var x = 0;
+    var g = [0, 0, 0];
+    var l = str.length;
+    for(var i = 0; i < l; i++)
+    {
+      var col = guessTable[str.charAt(i).toLowerCase()] || [.5, .5, .5, .5];
+      var m = col[3];
+      g[0] = (g[0] * m * x + col[0]) / (x + 1);
+      g[1] = (g[1] * m * x + col[1]) / (x + 1);
+      g[2] = (g[2] * m * x + col[2]) / (x + 1);
+      x++;
+    }
+    return g;
+  }
+
+  var guessTable = {
+    "a": [7, 5, .01, .1],
+    "b": [.5, .1, .001, .5],
+    "c": [.1, .4, .05, .8],
+    "d": [.5, .2, .1, .65],
+    "e": [.8, .5, .1, .3],
+    "f": [-3, .5, -1, 1.1],
+    "g": [.05, .12, .19, 1],
+    "h": [.85, .5, .4, 0.4],
+    "i": [5, 5, 9, 0.5],
+    "j": [.6, .5, 1, 0.32],
+    "k": [.3, .1, .45, 0.77],
+    "l": [-.1, -.1, .22, 0.9],
+    "m": [.4, 0, 0.01, 1],
+    "n": [.6, .24, 0.01, 1],
+    "o": [.9, .32, -9, 1],
+    "p": [.98, .03, 0.07, 1],
+    "q": [-.5, 0, 0, 1.5],
+    "r": [2, 0, -1, -1.2],
+    "s": [2, 3, 5, 0.3],
+    "t": [0, 0, .1, 0.6],
+    "u": [1, 1, .5, 1],
+    "v": [.1, .9, .22, .9],
+    "w": [.9, .3, .2, .9],
+    "x": [.1, .1, .3, .65],
+    "y": [.1, .45, .1, .98],
+    "z": [0, .01, .46, 1],
+    "#": [-1, -1, 1, .2],
+    "1": [1, .1, .1, .9],
+    "2": [1, 0, 2, .9],
+    "3": [2, 0, 1, .9],
+    "4": [.4, 0, .1, .9],
+    "5": [1, 2, 3, .9],
+    "6": [8, 6, 1, .9],
+    "7": [5, 6, 1, .9],
+    "8": [0, .3, .4, .9],
+    "9": [0, 0, .1, .9],
+    "0": [2, 2, 2.5, .9],
+    "'": [3, 2, 2.5, .9],
+  }
+
   var bases = {
     "black": [0, 0, 0],
     "grey": [.5, .5, .5],
     "gray": [.5, .5, .5],
     "white": [1, 1, 1],
     "red": [1, 0, 0],
+    "grass": "229920",
+    "fog": "9ebfb8",
+    "chill": "c9dddd",
     "reddish": [.4, 0, 0],
     "crimson": [.863, .079, .236],
     "maroon": [.502, 0, 0],
@@ -212,7 +287,17 @@
     "olive": [.5, .5, 0],
     "violet": [.4, 0, .45],
     "purple": [.3, 0, .3],
-    "grapefruit": [1, .35, .35]
+    "grapefruit": [1, .35, .35],
+    "walnut": "7a6940",
+    "midnight": "211626",
+    "moon": "c9cbcc",
+    "moonlight": "cdd4d6",
+    "scab": "60483f",
+    "bone": "edeae1",
+    "ass": "dda277",
+    "why": [-0.2, .3, .2],
+    "sunset": "d65519",
+    "licorice": "0b0611"
   };
 
   var filters = {
@@ -250,6 +335,15 @@
       darken(rgb, .7);
       lean(rgb, .7, .4, .1);
     },
+    "soup": function(rgb) {
+      darken(rgb, .7);      
+      rgb.r += 0.3;
+      rgb.g += 2.5;
+      rgb.g *= 0.1;
+      rgb.b *= 0.01;  
+      rgb.b -= 0.5;   
+      desat(rgb, 0.25);
+    },
     "amaranth": function(rgb) {
       desat(rgb, .1);
       darken(rgb, .5);
@@ -275,6 +369,11 @@
     "light": function(rgb) {
       lighten(rgb, .4);
     },
+    "dank": function(rgb) {
+      rgb.b *= 0.3;
+      darken(rgb, .45);
+      rgb.g *= 1.2;
+    },
     "baby": function(rgb) {
       rgb.r += 0.4;
       rgb.r *= 2.0;
@@ -282,6 +381,12 @@
       rgb.g *= 2.0;
       rgb.b += 0.3;
       rgb.b *= 2.0;
+    },
+    "babies": function(rgb)
+    {
+      filters["baby"](rgb);
+      rgb.r += 0.02;
+      darken(rgb, 0.03);
     },
     "vanilla": function(rgb) {
       lighten(rgb, .2);
@@ -786,6 +891,57 @@
       {
         lighten(rgb, .3);
       }
+    },
+    "creamy": function(rgb) {      
+      yellowize(rgb, 0.2);
+      desat(rgb, 0.14);
+      lighten(rgb, 0.3);
+    },
+    "surprise": function(rgb) {
+      rgb.r += 0.4;
+      rgb.g += 0.6;
+      lighten(rgb, 0.6);
+      sat(rgb, 0.2);
+      rgb.r += 0.1;
+      rgb.b -= 0.05;
+      rgb.g += 0.12;
+      darken(rgb, rgb.g - rgb.r);
+    },
+    "a": function(rgb) {
+      lighten(rgb, 0.01);
+      rgb.g *= 1.05;
+      rgb.r *= 1.07;
+    },
+    "an": function(rgb) {
+      lighten(rgb, 0.01);
+      rgb.g *= 1.12;
+      rgb.r *= 1.07;
+      rgb.b -= 0.02;
+    },
+    "dull": function(rgb) {
+      darken(rgb, 0.05);
+      desat(rgb, 0.35);
+      rgb.r *= rgb.r;
+    },
+    "moist": function(rgb) {      
+      desat(rgb, 0.2);
+      lighten(rgb, 0.03);
+      rgb.b *= 1.1;
+    },
+    "towelette": function(rgb) {   
+      desat(rgb, 0.7);   
+      rgb.r += 0.7;
+      rgb.g += 0.7;
+      rgb.b += 0.8;
+    },
+    "tropical": function(rgb) {
+      lean(rgb, .2, .12, -.1);
+    },
+    "bleached": function(rgb) {
+      desat(rgb, 0.85);
+      lighten(rgb, 0.25);
+      rgb.r += 0.05;
+      rgb.g += 0.065;
     }
   };
   Incantate = {
@@ -803,16 +959,27 @@
       {
         if (component = bases[parts[i]])
         {
+          // Convert hex codes
+          if (typeof component === 'string' || component instanceof String)
+          {
+            component = hexToRgb(component);            
+          }
           color.r = (color.r * n + (component[0])) / (n + 1);
           color.g = (color.g * n + (component[1])) / (n + 1);
           color.b = (color.b * n + (component[2])) / (n + 1);
-          n++;
         }
         else if (component = filters[parts[i]])
         {
           component(color);
-          n++;
         }
+        else
+        {
+          component = guess(parts[i]);
+          color.r = (color.r * n + (component[0])) / (n + 1);
+          color.g = (color.g * n + (component[1])) / (n + 1);
+          color.b = (color.b * n + (component[2])) / (n + 1);
+        }
+        n++;
       }
       color.normalize();
       return color;

@@ -1,23 +1,26 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Berkin's Color Generator</title>
+    <title>Paint Color Generator</title>
     <link rel="stylesheet" type="text/css" href="static/css/common.css" />
     <link rel="stylesheet" type="text/css" href="static/css/incantate.css" />
     <script type="text/javascript" src="static/js/jquery.js"></script>
     <script type="text/javascript" src="static/js/incantate.js"></script>
   </head>
   <body>
-    <h1 class="centered">Berkin's Color Generator</h1>
+    <h1 class="centered">Paint Color Generator</h1>
     <div class="centered">
       <div class="colorsample" id="color">
-          <input type="text" id="colorname" placeholder="Enter color name" required>
+          <input type="text" id="colorname" placeholder="Name your color..." required>
           <span class="colorhex" id="colorhex"></span>
       </div>
       <p class="note">
         Need help? Try inputs like "warm summer night" or "dead minion pie".
         <br/>
         Not all keywords are supported, but I'm always adding more.
+      </p>
+      <p class="note">
+      &copy; 2017 Nicholas Fleck
       </p>
     </div>
     <script type="text/javascript">
