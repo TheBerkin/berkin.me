@@ -154,6 +154,36 @@
     rgb.r += amount;
   }
 
+  var blush = function(rgb, amount) {
+    rgb.r += 0.125 * amount;
+    rgb.g *= 1.0 - 0.2 * amount;
+    rgb.b *= 1.0 - 0.2 * amount;
+  }
+
+  var burn = function(rgb, amount) {
+    desat(rgb, .2);
+    yellowize(rgb, amount * 0.4);
+    var max = Math.max(rgb.r, rgb.g, rgb.b)
+    var mean = (rgb.r + rgb.g + rgb.b) / 2;
+    if (rgb.r > rgb.g && rgb.r > rgb.b)
+    {
+      lerp(rgb, max - mean, 0, 0, amount);
+    }
+    else if (rgb.g > rgb.r && rgb.g > rgb.b)
+    {
+      lerp(rgb, 0, max - mean, 0, amount);
+    }
+    else if (rgb.b > rgb.r && rgb.b > rgb.g)
+    {
+      lerp(rgb, 0, 0, max - mean, amount);
+    }
+    else
+    {     
+      darken(rgb, amount);
+    }
+    lighten(rgb, .1);
+  }
+
   var hexToRgb = function(hex) {
     var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
     return result ? [
@@ -311,7 +341,9 @@
     "love": "b72840",
     "heartbreak": "843341",
     "lust": "f46235",
-    "pruple": "b531c4"
+    "pruple": "b531c4",
+    "rose": "e55454",
+    "corn": "fce116"
   };
 
   var filters = {
@@ -996,6 +1028,37 @@
       sat(rgb, .1);
       rgb.b *= rgb.g;
       darken(rgb, .2);
+    },
+    "mellow": function(rgb) {
+      var r = rgb.r;
+      darken(rgb, .11);
+      yellowize(rgb, .25);
+      rgb.r *= (rgb.r + rgb.g) / 2;
+      rgb.b -= 0.1;
+      desat(rgb, 0.23);
+      rgb.r *= r;
+      rgb.b *= rgb.b;
+      rgb.g *= rgb.g;
+      desat(rgb, .1);
+    },
+    "candy": function(rgb) {
+      rgb.r += 0.2;
+      darken(rgb, .5);
+      sat(rgb, .55);
+    },
+    "corny": function(rgb) {
+      desat(rgb, .25);
+      yellowize(rgb, 0.4);
+      sat(rgb, 0.1)
+      darken(rgb, .3);
+    },
+    "horny": function(rgb) {
+      rgb.r += 0.1;
+      darken(rgb, .2);
+      sat(rgb, .1);
+    },
+    "burnt": function(rgb) {
+      burn(rgb, .8);
     }
   };
   Incantate = {

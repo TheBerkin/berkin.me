@@ -7,7 +7,7 @@
   font-size: 1.2em;
   border: none;
   outline: none;
-  width: 60%;
+  width: 70%;
 }
 
 #colorname:invalid
@@ -16,6 +16,12 @@
   border-top: none;
   border-left: none;
   border-right: none;
+}
+
+h1
+{
+  font-size: 4em;
+  color: #333;
 }
 
 ::-webkit-input-placeholder
@@ -55,13 +61,13 @@
   border: 1px solid #999;
   margin: 24px;
   padding: 20px;
-  transition: background-color .75s ease;
+  transition: background-color .6s ease;
 }
 
 .colorhex
 {
   margin-left: auto;
-  transition: color .75s ease;
+  transition: color .6s ease;
   font-size: 1.2em;
 }
 
