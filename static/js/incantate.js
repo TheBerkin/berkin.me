@@ -1059,6 +1059,32 @@
     },
     "burnt": function(rgb) {
       burn(rgb, .8);
+    },
+    "american": function(rgb) {
+      if (rgb.r > rgb.g && rgb.r > rgb.b)
+      {
+        rgb.r = 1;
+        rgb.g = .1;
+        rgb.b = .1;
+      }
+      else if (rgb.g > rgb.r && rgb.g > rgb.b)
+      {
+        rgb.r = 1;
+        rgb.g = 1;
+        rgb.b = 1;
+      }
+      else if (rgb.b > rgb.g && rgb.b > rgb.r)
+      {
+        rgb.r = .1;
+        rgb.g = .1;
+        rgb.b = 1;
+      }
+      else
+      {
+        rgb.r = 1;
+        rgb.g = 1;
+        rgb.b = 1;
+      }
     }
   };
   Incantate = {
