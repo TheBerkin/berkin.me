@@ -72,6 +72,10 @@
     }
   }
 
+  var mean = function(a, b) {
+    return new RGB((a.r + b.r) / 2, (a.g + b.g) / 2, (a.b + b.b) / 2);
+  }
+
   var desat = function(rgb, amount) {
     var x = (rgb.r + rgb.g + rgb.b) / 3;
     rgb.r += (x - rgb.r) * amount;
@@ -193,64 +197,6 @@
     ] : null;
   }
 
-  var guess = function(str)
-  {
-    var x = 0;
-    var g = [0, 0, 0];
-    var l = str.length;
-    for(var i = 0; i < l; i++)
-    {
-      var col = guessTable[str.charAt(i).toLowerCase()] || [.5, .5, .5, .5];
-      var m = col[3];
-      g[0] = (g[0] * m * x + col[0]) / (x + 1);
-      g[1] = (g[1] * m * x + col[1]) / (x + 1);
-      g[2] = (g[2] * m * x + col[2]) / (x + 1);
-      x++;
-    }
-    return g;
-  }
-
-  var guessTable = {
-    "a": [7, 5, .01, .1],
-    "b": [.5, .1, .001, .5],
-    "c": [.1, .4, .05, .8],
-    "d": [.5, .2, .1, .65],
-    "e": [.8, .5, .1, .3],
-    "f": [-3, .5, -1, 1.1],
-    "g": [.05, .12, .19, 1],
-    "h": [.85, .5, .4, 0.4],
-    "i": [5, 5, 9, 0.5],
-    "j": [.6, .5, 1, 0.32],
-    "k": [.3, .1, .45, 0.77],
-    "l": [-.1, -.1, .22, 0.9],
-    "m": [.4, 0, 0.01, 1],
-    "n": [.6, .24, 0.01, 1],
-    "o": [.9, .32, -9, 1],
-    "p": [.98, .03, 0.07, 1],
-    "q": [-.5, 0, 0, 1.5],
-    "r": [2, 0, -1, 1.2],
-    "s": [2, 3, 5, 0.3],
-    "t": [0, 0, .1, 0.6],
-    "u": [1, 1, .5, 1],
-    "v": [.1, .9, .22, .9],
-    "w": [.9, .3, .2, .9],
-    "x": [.1, .1, .3, .65],
-    "y": [.1, .45, .1, .98],
-    "z": [0, .01, .46, 1],
-    "#": [-1, -1, 1, .2],
-    "1": [1, .1, .1, .9],
-    "2": [1, 0, 2, .9],
-    "3": [2, 0, 1, .9],
-    "4": [.4, 0, .1, .9],
-    "5": [1, 2, 3, .9],
-    "6": [8, 6, 1, .9],
-    "7": [5, 6, 1, .9],
-    "8": [0, .3, .4, .9],
-    "9": [0, 0, .1, .9],
-    "0": [2, 2, 2.5, .9],
-    "'": [3, 2, 2.5, .9],
-  }
-
   var bases = {
     "black": [0, 0, 0],
     "grey": [.5, .5, .5],
@@ -334,7 +280,7 @@
     "meth": "f4f7f7",
     "lavender": "a370ad",
     "taint": "ba997a",
-    "sea-floor": "4d8e74",
+    "seafloor": "4d8e74",
     "celery": "74bf2a",
     "space": "242535",
     "passion": "c60519",
@@ -1087,6 +1033,50 @@
       }
     }
   };
+
+  var keys = Object.keys(filters).concat(Object.keys(bases));
+
+  // SEE: https://en.wikibooks.org/wiki/Algorithm_Implementation/Strings/Levenshtein_distance#JavaScript
+  var levDist = function(a, b) {
+    if (a.length === 0) return b.length; 
+    if (b.length === 0) return a.length; 
+
+    var matrix = [];
+
+    var i;
+    for (i = 0; i <= b.length; i++) 
+    {
+      matrix[i] = [i];
+    }
+
+    var j;
+    for (j = 0; j <= a.length; j++) 
+    {
+      matrix[0][j] = j;
+    }
+
+    for (i = 1; i <= b.length; i++) 
+    {
+      for (j = 1; j <= a.length; j++) 
+      {
+        if (b.charAt(i-1) == a.charAt(j-1)) 
+        {
+          matrix[i][j] = matrix[i-1][j-1];
+        }
+        else 
+        {
+          matrix[i][j] 
+          = Math.min(
+              matrix[i-1][j-1] + 1, // substitution
+              Math.min(matrix[i][j-1] + 1, // insertion
+              matrix[i-1][j] + 1)); // deletion
+        }
+      }
+    }
+
+    return matrix[b.length][a.length];
+  }
+
   Incantate = {
     getColor: function(colorName) {
       if (colorName == undefined || colorName.length == 0)
@@ -1101,6 +1091,7 @@
       for(var i = parts.length - 1; i >= 0; i--)
       {
         if (parts[i].length === 0) continue;
+
         if (component = bases[parts[i]])
         {
           // Convert hex codes
@@ -1118,10 +1109,79 @@
         }
         else
         {
-          component = guess(parts[i]);
-          color.r = (color.r * n + (component[0])) / (n + 1);
-          color.g = (color.g * n + (component[1])) / (n + 1);
-          color.b = (color.b * n + (component[2])) / (n + 1);
+
+          // Find the two items with the shortest Levenshtein distance
+
+          // Shortest distance
+          var a = {
+            key: "",
+            lev: -1
+          };
+          // Second-shortest distance
+          var b = {
+            key: "",
+            lev: -1
+          };
+
+          // Find distances
+          var lev = -1;
+          for(var j = 0; j < keys.length; j++)
+          {
+            lev = levDist(parts[i], keys[j]);
+            if (a.lev == -1 || lev <= a.lev)
+            {
+              a.key = keys[j];
+              a.lev = lev;
+            }
+          }
+
+          for(var j = 0; j < keys.length; j++)
+          {
+            lev = levDist(parts[i], keys[j]);
+            if ((b.lev == -1 || lev <= b.lev) && keys[j] != a.key)
+            {
+              b.key = keys[j];
+              b.lev = lev;
+            }
+          }
+
+          var colorA;
+          var colorB;
+
+          // Calculate first color guess
+          if (colorA = bases[a.key])
+          {
+            // Convert hex codes
+            if (typeof colorA === 'string' || colorA instanceof String)
+            {
+              colorA = hexToRgb(colorA);                          
+            }
+            colorA = new RGB(colorA[0], colorA[1], colorA[2]);
+          }
+          else if (component = filters[a.key])
+          {
+            colorA = new RGB(color.r, color.g, color.b);
+            component(colorA);
+          }
+
+          // Calculate second color guess
+          if (colorB = bases[b.key])
+          {
+            // Convert hex codes
+            if (typeof colorB === 'string' || colorB instanceof String)
+            {
+              colorB = hexToRgb(colorB);                          
+            }
+            colorB = new RGB(colorB[0], colorB[1], colorB[2]); 
+          }
+          else if (component = filters[b.key])
+          {
+            colorB = new RGB(color.r, color.g, color.b);
+            component(colorB);
+          }
+
+          // Mean it together
+          color = mean(color, mean(colorA, colorB));
         }
         n++;
       }
