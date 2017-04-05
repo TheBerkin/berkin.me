@@ -289,7 +289,21 @@
     "lust": "f46235",
     "pruple": "b531c4",
     "rose": "e55454",
-    "corn": "fce116"
+    "corn": "fce116",
+    "spongebob": "fff359",
+    "squarepants": "fff357",
+    "patrick": "ffb69d",
+    "squidward": "a0ccbb",
+    "gorilla": "292929",
+    "samsung": "ffbc1f",
+    "cocaine": "fbfaef",
+    "hooker": "ccc29c",
+    "dandelion": "f5d20f",
+    "homicide": "730e0e",
+    "bread": "e8c980",
+    "nazi": "fe0000",
+    "trump": "c7a872",
+    "mold": "484719"
   };
 
   var filters = {
