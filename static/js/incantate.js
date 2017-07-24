@@ -43,6 +43,12 @@
     return (this.r * 1.3 + this.g * 1.8 + this.b * .3) / 3 > .5;
   };
 
+  RGB.prototype.saturation = function() {
+    var min = Math.min(this.r,this.g, this.b);
+    var max = Math.max(this.r, this.g, this.b);
+    return max == min ? 0 : (max + min) > 1 ? (max - min) / (2 - max - min) : (max - min) / (max + min);
+  };
+
   var lean = function(color, rr, gg, bb) {
     if (color.r > 0)
     {
@@ -288,6 +294,7 @@
     "seafloor": "4d8e74",
     "sepia": [1, .9, .5],
     "sky": [.4, .63, 1],
+    "smegma": "f7f2e1",
     "snicker": "75501d",
     "snigger": "8c5b17",
     "space": "242535",
@@ -313,6 +320,17 @@
   };
 
   var filters = {
+    "stale": function(rgb) {
+      if (rgb.saturation() > 0.7)
+      {
+        desat(rgb, .8);
+      }
+      else
+      {
+        lighten(rgb, .4);
+        desat(rgb, .1);
+      }
+    },
     "dried": function(rgb) {
       if ((rgb.r + rgb.g + rgb.b) / 3 > .5)
       {
