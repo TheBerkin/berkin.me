@@ -4,271 +4,102 @@
   src: url("fonts/Aller_Lt.ttf");
 }
 
-body
-{
-  background-color: #eee !important;
+html, body {
+  color: white;
+  background: #111;
+  width: 100vw;
+  min-height: 100vh;
+  height: 100vh;
+  -webkit-font-smoothing: anti-aliased;
+  text-rendering: optimizeLegibility;
+  overflow: hidden;
 }
 
-body::before
-{
-  content: '';
-  background-image: url("../img/berkin-black.png");
-  background-repeat: no-repeat;
+#container {
   width: 100%;
   height: 100%;
-  position: absolute;
-  z-index: -1;
-  background-size: auto;
-  background-position: center;
-  opacity: 0.02;
+  display: grid;
+  grid-template: 1fr 1fr / 1fr;
 }
 
-span.small.line
-{
-  font-size: 1.9em;
-}
-
-span.large.line
-{
-  margin: 3px 0;
-  font-size: 2.8em;
-}
-
-span.line
-{
-  display: block;
-}
-
-p.emphasize
-{
-  font-size: 1.4em;
-}
-
-hr
-{
-  border-color: #eee;
-  margin: 32px 0;
-}
-
-a
-{
-  color: #062ac1;
-}
-
-.line-set
-{
-  margin: 24px 0px;
-  display: block;
-}
-
-.headitem
-{
-  padding: 0px 0px;
-  white-space: nowrap;
-  width: 150px;
-  order: -1;
+#logo-area {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
   align-items: center;
+  grid-row: 1 / 1;
 }
 
-.headitem.icon
-{
-  width: 60px;
-  height: 100%;
-  font-size: 1.2em;
-  order: -1;
-  align-items: center;
-  overflow: hidden;
+#logo-main {
+  display: block;
+  width: 170px;
+  height: 170px;
+  flex-shrink: 0;
+  background-image: url("/static/img/berkin-white.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  animation: fade-up 1.5s ease 0.1s;
+  animation-fill-mode: both;
 }
 
-.headbox
-{
-  height: 60px;
-  font-family: "Aller";
-  font-size: 24px;
+#title-main {
+  animation: fade-up 1.5s ease 0.3s;
+  animation-fill-mode: forwards;
+  margin: 24px;
+  font-size: 18pt;
+  font-weight: 400;
+  letter-spacing: 0.5em;
+  text-align: center;
+  opacity: 0;
+  padding-left: .35em;
+}
+
+#nav-area {
+  grid-row: 2 / 2;
   display: flex;
   flex-direction: row;
-  background-color: #093c54;
-  color: #fff;
-  overflow: hidden;
-}
-
-:not(.right) + .right
-{
-  margin-left: auto;
-}
-
-img.profile
-{
-  width: 175px;
-  height: 175px;
-}
-
-p.smaller, a.smaller
-{
-  font-size: 0.9em;
-}
-
-.float-right
-{
-  display: block;
-  float: right;
-}
-
-.float-left
-{
-  display: block;
-  float: left;
-}
-
-.profile.float-left
-{
-  margin-right: 16px;
-}
-
-.profile.float-right
-{
-  margin-left: 16px;
-}
-
-.berkin
-{
-  display: inline-block;
-  position: absolute;
-  top: -65px;
-  left: -15px;
-  width: 200px;
-  height: 200px;
-  background-image: url("../img/berkin-logo.svg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  transition: 0.3s transform cubic-bezier(.53,.34,.56,.83);
-  transform: scale(0.6);
-}
-
-.berkin:hover
-{
-  transform: scale(0.6) translateY(15px);
-}
-
-.button
-{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
-  transition: background-color ease 0.2s, color ease 0.2s;
-}
-
-.button:hover
-{
-  color: #093c54;
-  background-color: #fff;
-  z-index: 1000;
-}
-
-.section::after
-{
-  clear: both;
-  content: '';
-  display: table;
-}
-
-#project-list
-{
-  display: flex;
   flex-wrap: wrap;
-  margin-left: -4px;
+  justify-content: center;
+  align-content: center;
+  animation: fade-in 1.75s ease 0.5s;
+  animation-fill-mode: both;
 }
 
-.project
-{
-  display: inline-block;
-  position: relative;
-  margin: 6px;
-  min-height: 175px;
-  border-radius: 3px;
-  border: 2px solid #ccc;
-  color: #000;
-  font-size: 1.2em;
-}
-
-.project > div
-{
-  padding: 0 16px;
+project-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 240px;
+  height: 150px;
+  padding: 16px;
+  margin: 16px;
+  flex-grow: 0;
   box-sizing: border-box;
 }
 
-.project-title
-{
-  font-size: 1.5em;
-  display: block;
+project-box > label {
+  font-size: 24pt;
+  text-align: center;
 }
 
-.project-body
-{
-  width: 100%;
-  height: 100%;
-  padding: 16px;
-  margin-top: 8px;
-  margin-bottom: 32px;
-}
-
-.project-links
-{
-  text-align: right;
-  position: absolute;
-  width: 100%;
-  height: 32px;
-  bottom: 0;
-}
-
-/* Narrow */
-@media screen and (max-width: 640px)
-{
-  .landscape
-  {
-      display: none;
+@keyframes fade-up {
+  from {
+    filter: blur(16px);
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
   }
 }
 
-/* Regular */
-@media screen and (min-width: 640px)
-{
-  .portrait
-  {
-      display: none;
+@keyframes fade-in {
+  from {
+    filter: blur(16px);
+    opacity: 0;
+    transform: scale(1.1);
   }
-}
-
-/* Wide */
-@media screen and (min-aspect-ratio: 4/3)
-{
-  .project
-  {
-    display: inline-block;
-    width: 400px;
-    max-width: 400px;
-  }
-  .hpadded
-  {
-    padding: 2em 20%;
-  }
-}
-
-/* Tall */
-@media screen and (max-aspect-ratio: 4/3)
-{
-  .project
-  {
-    display: block;
-  }
-  #project-list
-  {
-    flex-direction: column;
-  }
-  .hpadded
-  {
-    padding: 1em 2em;
+  to {
+    opacity: 1;
   }
 }

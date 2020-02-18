@@ -1,4 +1,0 @@
-[case:first][rep:3][sep:,;,;and]
-{
-  \a <noun-person|job|animal>
-} walked into a bar...
