@@ -233,10 +233,13 @@
     "cornflower": [.392, .584, .929],
     "cream": [.961, .961, .8],
     "crimson": [.863, .079, .236],
+    "cucumber": "bbddb5",
     "cyan": [0, 1, 1],
     "dandelion": "f5d20f",
     "espresso": "23170c",
     "facepunch": [.72, 0, 0],
+    "fart": "697059",
+    "foam": "d3e1e5",
     "fog": "9ebfb8",
     "forest": [0, .7, 0],
     "fuchsia": [.65, .22, .65],
@@ -289,14 +292,16 @@
     "reddish": [.4, 0, 0],
     "rose": "e55454",
     "rust": [.7, .4, .1],
+    "sage": "398e5c",
     "samsung": "ffbc1f",
     "scab": "60483f",
+    "sea": "397d8e",
     "seafloor": "4d8e74",
     "sepia": [1, .9, .5],
     "sky": [.4, .63, 1],
     "smegma": "f7f2e1",
     "snicker": "75501d",
-    "snigger": "8c5b17",
+    "nugget": "8c5b17",
     "space": "242535",
     "spongebob": "fff359",
     "squarepants": "fff357",
@@ -310,6 +315,7 @@
     "trump": "c7a872",
     "turquoise": [.1, .6, .7],
     "umber": [.388, .318, .278],
+    "pus": "f9e890",
     "vermillion": [.890, .259, .204],
     "violet": [.4, 0, .45],
     "vomit": [.5, .9, .24],
@@ -436,7 +442,10 @@
       lerp(rgb, 1, 1, .75, .75);
     },
     "dark": function(rgb) {
-      darken(rgb, .5);
+      darken(rgb, .1);
+    },
+    "darkest": function(rgb) {
+      darken(rgb, .3);
     },
     "vintage": function(rgb) {
       desat(rgb, .75);
@@ -631,9 +640,9 @@
       rgb.b *= .8;
     },
     "blood": function(rgb) {
-      rgb.g *= .3;
-      rgb.b *= .3;
-      lean(rgb, .6, 0, 0);
+      rgb.g *= .75;
+      rgb.b *= .75;
+      lean(rgb, .3, 0, 0);
     },
     "summer": function(rgb) {
       rgb.r *= .3;
@@ -945,7 +954,7 @@
     },
     "creamy": function(rgb) {      
       yellowize(rgb, 0.2);
-      desat(rgb, 0.14);
+      desat(rgb, 0.3);
       lighten(rgb, 0.3);
     },
     "surprise": function(rgb) {
@@ -1132,10 +1141,10 @@
     getColor: function(colorName) {
       if (colorName == undefined || colorName.length == 0)
       {
-        return new RGB(0, 0, 0);
+        return new RGB(1, 1, 1);
       }
 
-      var color = new RGB(0, 0, 0);
+      var color = new RGB(1, 1, 1);
       var n = 0;
       var parts = colorName.toLowerCase().split(/[^\w]/);
       var component = undefined;
