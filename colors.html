@@ -17,7 +17,7 @@
       <p class="note">
         Need help? Try inputs like "warm summer night" or "dead minion pie".
         <br/>
-        Not all keywords are supported, but I'm always adding more.
+        Not all words may produce a logical output.
       </p>
       <p class="note">
       &copy; 2021 Berkin
@@ -25,9 +25,21 @@
     </div>
     <script type="text/javascript">
       (function() {
-        var colorNameField = $("#colorname");
-        var colorHexField = $("#colorhex");
-        var colorCard = $("#color");
+        let exampleAdjectives = [
+          "dead", "warm", "cold", "happy", "bright", "light", "dark", "deep", "creamy", "rusty", "rustic", "cheerful", "bloody", "spicy", "candy", "cinnamon",
+          "antique", "electric", "brotherly", "dried", "old", "playful", "roasted", "dull", "hot", "true", "chocolate", "red", "green", "bitter", "royal"];
+        let exampleNouns = [
+          "love", "red", "green", "blue", "yellow", "cream", "night", "dirt", "pie", "frog", "man", "day", "wood", "forest", "honeydew", "ocean", "foam", "shit", 
+          "puke", "espresso", "dandelion", "blood", "soup", "breeze", "amaranth", "sage", "heartbreak", "passion"];
+        let colorNameField = $("#colorname");
+        let colorHexField = $("#colorhex");
+        let colorCard = $("#color");
+
+        let pickRandom = function(arr) {
+          return arr[Math.floor(Math.random() * arr.length)];
+        }
+
+        colorNameField.val(`${pickRandom(exampleAdjectives)} ${pickRandom(exampleNouns)}`);
 
         var updateColor = function() {
           var color = Incantate.getColor(colorNameField.val());
