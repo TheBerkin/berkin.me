@@ -254,6 +254,8 @@
     "grey": [.5, .5, .5],
     "heartbreak": "843341",
     "homicide": "730e0e",
+    "honey": "e0b750",
+    "honeydew": "efe175",
     "hooker": "ccc29c",
     "indigo": [.295, 0, .51],
     "khaki": [.76, .69, .57],
@@ -424,12 +426,8 @@
       rgb.g *= 1.2;
     },
     "baby": function(rgb) {
-      rgb.r += 0.4;
-      rgb.r *= 2.0;
-      rgb.g += 0.3;
-      rgb.g *= 2.0;
-      rgb.b += 0.3;
-      rgb.b *= 2.0;
+      lean(rgb, 0.9, 0.3, 0.1);
+      lighten(rgb, 0.2);
     },
     "babies": function(rgb)
     {
@@ -586,10 +584,11 @@
       rgb.b *= m;
     },
     "night": function(rgb) {
+      desat(rgb, .1);
+      darken(rgb, .9);
       rgb.r *= .1;
       rgb.g *= .1;
       rgb.b += .2;
-      desat(rgb, .1);
     },
     "day": function(rgb) {
       desat(rgb, .2);
@@ -647,7 +646,7 @@
     "summer": function(rgb) {
       rgb.r *= .3;
       rgb.g *= .3;
-      sat(rgb, .45);
+      sat(rgb, .3);
     },
     "summertime": function(rgb) {
       rgb.r *= .5 + rgb.r;
